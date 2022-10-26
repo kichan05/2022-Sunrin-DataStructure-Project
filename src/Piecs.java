@@ -5,7 +5,7 @@ public abstract class Piecs {
     private Pos pos;
     private Team team;
 
-    Piecs(int x, int y, Team team){
+    Piecs(char x, int y, Team team){
         this.pos = new Pos(x, y);
         this.team = team;
     }
@@ -18,7 +18,7 @@ public abstract class Piecs {
         this.pos = pos;
     }
 
-    public void setPos(int x, int y){
+    public void setPos(char x, int y){
         pos.setPos(x, y);
     }
 
@@ -26,7 +26,7 @@ public abstract class Piecs {
         return team;
     }
 
-    abstract public boolean canMove(int x, int y);
+    abstract public boolean canMove(char x, int y);
     abstract public boolean canMove(Pos pos);
     abstract public List<Pos> getCanMovePosList();
 }

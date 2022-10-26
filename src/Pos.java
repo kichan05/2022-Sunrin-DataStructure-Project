@@ -1,30 +1,35 @@
 public class Pos {
-    private int x;
+    private char x;
     private int y;
 
-    Pos(int x, int y){
+    Pos(char x, int y) {
         this.x = x;
         this.y = y;
     }
 
-    public int getX(){
+    public char getX() {
         return x;
     }
 
-    public int getY(){
+    public int getY() {
         return y;
     }
 
-    public void setX(int x){
+    public void setX(char x) {
         this.x = x;
     }
 
-    public void setY(int y){
+    public void setY(int y) {
         this.y = y;
     }
 
-    public void setPos(int x, int y){
+    public void setPos(char x, int y) {
         this.x = x;
         this.y = y;
+    }
+
+    public void setPos(Pos pos) {
+        this.x = pos.getX();
+        this.y = pos.getY();
     }
 }

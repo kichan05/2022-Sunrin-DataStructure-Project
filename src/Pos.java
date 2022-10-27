@@ -1,13 +1,13 @@
 public class Pos {
-    private char x;
+    private int x;
     private int y;
 
-    Pos(char x, int y) {
+    Pos(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
-    public char getX() {
+    public int getX() {
         return x;
     }
 
@@ -15,7 +15,7 @@ public class Pos {
         return y;
     }
 
-    public void setX(char x) {
+    public void setX(int x) {
         this.x = x;
     }
 
@@ -23,7 +23,7 @@ public class Pos {
         this.y = y;
     }
 
-    public void setPos(char x, int y) {
+    public void setPos(int x, int y) {
         this.x = x;
         this.y = y;
     }

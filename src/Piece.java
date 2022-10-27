@@ -1,13 +1,14 @@
-import java.time.temporal.Temporal;
 import java.util.List;
 
-public abstract class Piecs {
+public abstract class Piece {
     private Pos pos;
     private Team team;
+    private boolean isLive;
 
-    Piecs(char x, int y, Team team){
+    Piece(int x, int y, Team team){
         this.pos = new Pos(x, y);
         this.team = team;
+        this.isLive = true;
     }
 
     public Pos getPos(){

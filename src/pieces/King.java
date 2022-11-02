@@ -1,7 +1,9 @@
+package pieces;
+
 import java.util.List;
 
 public class King extends Piece{
-    King(int x, int y, Team team) {
+    public King(int x, int y, Team team) {
         super(x, y, team);
     }
 

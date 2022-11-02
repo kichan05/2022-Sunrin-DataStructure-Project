@@ -1,13 +1,21 @@
+import pieces.King;
+import pieces.Piece;
+import pieces.Team;
+
 import java.util.ArrayList;
 
 public class Board {
 
-    ArrayList<Piece> pieces = new ArrayList<Piece>();
-
+    private ArrayList<Piece> pieces = new ArrayList<Piece>();
 
     public void printBoard() {
+        System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n");
+
+        System.out.println("====================");
         for (int i = 0; i < pieces.size(); i++){
+            System.out.println(pieces.get(i).getPosX() + ", " + pieces.get(i).getPosY());
         }
+        System.out.println("====================");
     }
 
     public void initGameBoard() {

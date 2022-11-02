@@ -1,3 +1,5 @@
+package pieces;
+
 public class Pos {
     private int x;
     private int y;

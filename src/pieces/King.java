@@ -4,7 +4,7 @@ import java.util.List;
 
 public class King extends Piece {
     public King(int x, int y, Team team) {
-        super(x, y, team, '♔', '♚');
+        super(x, y, team, '♚', '♔');
     }
 
     @Override

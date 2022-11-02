@@ -9,12 +9,12 @@ public abstract class Piece {
     private final char shapeWhite;
     private final char shapeBlack;
 
-    Piece(int x, int y, Team team, char shapeBlack, char shapeWhite){
+    Piece(int x, int y, Team team, char shapeWhite, char shapeBlack){
         this.pos = new Pos(x, y);
         this.team = team;
 
-        this.shapeBlack = shapeBlack;
         this.shapeWhite = shapeWhite;
+        this.shapeBlack = shapeBlack;
     }
 
     public Pos getPos(){

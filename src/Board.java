@@ -13,7 +13,7 @@ public class Board {
 
         System.out.println("====================");
         for (int i = 0; i < pieces.size(); i++){
-            System.out.println(pieces.get(i).getPosX() + ", " + pieces.get(i).getPosY());
+            System.out.printf("%d, %d, %c\n", pieces.get(i).getPosX(), pieces.get(i).getPosY(), pieces.get(i).getShape());
         }
         System.out.println("====================");
     }

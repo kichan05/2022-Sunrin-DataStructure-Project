@@ -15,6 +15,14 @@ public abstract class Piece {
         return pos;
     }
 
+    public int getPosX() {
+        return pos.getX();
+    }
+
+    public int getPosY() {
+        return pos.getY();
+    }
+
     public void setPos(Pos pos){
         this.pos = pos;
     }

@@ -2,14 +2,19 @@ package pieces;
 
 import java.util.List;
 
-
 public abstract class Piece {
     private Pos pos;
     private final Team team;
 
-    Piece(int x, int y, Team team){
+    private final char shapeWhite;
+    private final char shapeBlack;
+
+    Piece(int x, int y, Team team, char shapeBlack, char shapeWhite){
         this.pos = new Pos(x, y);
         this.team = team;
+
+        this.shapeBlack = shapeBlack;
+        this.shapeWhite = shapeWhite;
     }
 
     public Pos getPos(){
@@ -34,6 +39,13 @@ public abstract class Piece {
 
     public Team getTeam(){
         return team;
+    }
+
+    public char getShape() {
+        if(team == Team.BLACK)
+            return shapeBlack;
+        else
+            return shapeWhite;
     }
 
     abstract public boolean canMove(char x, int y);

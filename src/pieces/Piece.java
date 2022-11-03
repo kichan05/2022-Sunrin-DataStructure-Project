@@ -9,12 +9,16 @@ public abstract class Piece {
     private final char shapeWhite;
     private final char shapeBlack;
 
+    private int moveCount;
+
     Piece(int x, int y, Team team, char shapeWhite, char shapeBlack){
         this.pos = new Pos(x, y);
         this.team = team;
 
         this.shapeWhite = shapeWhite;
         this.shapeBlack = shapeBlack;
+
+        this.moveCount = 0;
     }
 
     public Pos getPos(){
@@ -40,6 +44,8 @@ public abstract class Piece {
     public Team getTeam(){
         return team;
     }
+
+    public int getMoveCount() { return moveCount; }
 
     public char getShape() {
         if(team == Team.BLACK)

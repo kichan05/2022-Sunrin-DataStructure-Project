@@ -1,3 +1,4 @@
+import pieces.Pos;
 import pieces.Team;
 
 import java.util.Scanner;
@@ -17,7 +18,8 @@ public class Main {
         board.initGameBoard();
 
         while (gameState){
-            player1.inputPos("기물을 선택하세요.");
+            Pos player1InputPos = player1.inputPos("기물을 선택하세요.");
+            System.out.println(board.getPieceByPos(player1InputPos));
         }
 
     }

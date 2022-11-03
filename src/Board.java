@@ -63,4 +63,13 @@ public class Board {
         pieces.clear();
     }
 
+    public Piece getPieceByPos(Pos pos){
+        for(Piece i : pieces) {
+            if(i.getPosX() == pos.getX() && i.getPosY() == pos.getY()){
+                return i;
+            }
+        }
+
+        return null;
+    }
 }

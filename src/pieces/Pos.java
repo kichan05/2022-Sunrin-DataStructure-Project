@@ -34,4 +34,14 @@ public class Pos {
         this.x = pos.getX();
         this.y = pos.getY();
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(!(obj instanceof Pos)){
+            throw new RuntimeException("Type");
+        }
+        Pos pos = (Pos)obj;
+
+        return getX() == pos.getX() && getY() == pos.getY();
+    }
 }

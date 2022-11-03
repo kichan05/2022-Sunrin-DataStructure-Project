@@ -65,7 +65,7 @@ public class Board {
 
     public Piece getPieceByPos(Pos pos){
         for(Piece i : pieces) {
-            if(i.getPosX() == pos.getX() && i.getPosY() == pos.getY()){
+            if(i.equals(pos)){
                 return i;
             }
         }

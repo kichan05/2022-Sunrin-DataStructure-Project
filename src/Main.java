@@ -1,3 +1,5 @@
+import pieces.Team;
+
 import java.util.Scanner;
 
 public class Main {
@@ -7,19 +9,15 @@ public class Main {
 
         Board board = new Board();
 
-        Player player1 = new Player();
-        Player player2 = new Player();
+        Player player1 = new Player(Team.BLACK);
+        Player player2 = new Player(Team.WHITE);
 
         Scanner scanner = new Scanner(System.in);
 
         board.initGameBoard();
 
-        int x, y;
         while (gameState){
-            System.out.print("기물을 선택하세요 : ");
-            x = scanner.nextInt();
-            y = scanner.nextInt();
-
+            player1.inputPos("기물을 선택하세요.");
         }
 
     }

@@ -16,11 +16,11 @@ public class Board {
             {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '}};
 
     public void printBoard() {
-        for (int i = 0; i < pieces.size(); i++){
-            int pieceX = pieces.get(i).getPosX();
-            int pieceY = pieces.get(i).getPosY();
+        for (Piece piece : pieces) {
+            int pieceX = piece.getPosX();
+            int pieceY = piece.getPosY();
 
-            playground[pieceX][pieceY] = pieces.get(i).getShape();
+            playground[pieceX][pieceY] = piece.getShape();
         }
 
         System.out.print("\n\n\n\n");

@@ -1,5 +1,6 @@
 package pieces;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Rook extends Piece {
@@ -9,18 +10,28 @@ public class Rook extends Piece {
 
     @Override
     public boolean canMove(char x, int y) {
+//        Pos pos = new Pos(x, y);
         return false;
     }
 
     @Override
     public boolean canMove(Pos pos) {
+
         return false;
     }
 
     @Override
     public List<Pos> getCanMovePosList() {
-        return null;
+        ArrayList<Pos> posList = new ArrayList<Pos>();
+
+        for(int y = 1; y <= 8; y++){
+            posList.add(new Pos(getPosX(), y));
+        }
+
+        for(int x = 1; x <= 8; x++){
+            posList.add(new Pos(x, getPosY()));
+        }
+
+        return posList;
     }
-
-
 }

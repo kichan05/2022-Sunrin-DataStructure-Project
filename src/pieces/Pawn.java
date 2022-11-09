@@ -15,12 +15,12 @@ public class Pawn extends Piece {
 
     @Override
     public boolean canMove(Pos pos) {
-        if(pos!=null && pos.getX() < 8 && pos.getX() > 0 && pos.getY() < 8 && pos.getY() > 0) {
-            if(getTeam() == Team.WHITE){
+        if(pos!=null && pos.getX() <= 7 && pos.getX() >= 0 && pos.getY() <= 7 && pos.getY() >= 0) {
+            if(getTeam() == Team.BLACK){
                 if(getPosY()==pos.getY() + 1) return true;
                 else return getPosY() == pos.getY() + 2 && getMoveCount() == 0;
             }
-            else { // Team black
+            else {
                 if(getPosY()==pos.getY() - 1) return true;
                 else return getPosY() == pos.getY() - 2 && getMoveCount() == 0;
             }

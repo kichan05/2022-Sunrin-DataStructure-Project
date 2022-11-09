@@ -16,6 +16,12 @@ public class Board {
             {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '}};
 
     public void printBoard() {
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                playground[j][i] = ' ';
+            }
+        }
+
         for (Piece piece : pieces) {
             int pieceX = piece.getPosX();
             int pieceY = piece.getPosY();

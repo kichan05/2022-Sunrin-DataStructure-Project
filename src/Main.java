@@ -19,17 +19,32 @@ public class Main {
         board.initGameBoard();
 
         while (gameState) {
+
+            // 플레이어1 기물 선택
             Piece player1SelectPiece;
+            Pos player1InputPos;
             while (true) {
-                Pos player1InputPos = player1.inputPos("기물을 선택하세요.");
+                player1InputPos = player1.inputPos("이동할 기물을 선택하세요.");
                 player1SelectPiece = board.getPieceByPos(player1InputPos);
 
                 if (player1InputPos != null) break;
 
-                System.out.print("해당 위치에 기물이 없습니다.\n다시 ");
+                System.out.println("해당 위치에 기물이 없습니다.\n다시 선택하세요.");
             }
 
-            System.out.println(player1SelectPiece);
+            // 플레이어1 기물 이동
+            while (true) {
+                player1InputPos = player1.inputPos("기물을 이동할 위치를 선택하세요.");
+
+                if (player1SelectPiece.canMove(player1InputPos)) break;
+
+                System.out.println("해당 위치로 이동할 수 없습니다.\n다시 선택하세요.");
+            }
+
+            player1SelectPiece.setPos(player1InputPos);
+            board.printBoard();
+
+
         }
 
     }

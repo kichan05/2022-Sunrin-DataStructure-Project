@@ -13,7 +13,7 @@ public class Player {
     private final Scanner scanner = new Scanner(System.in);
     public Pos inputPos(String message) {
         int x, y;
-        System.out.printf("%s : ", message);
+        System.out.printf("%s) %s : ", this.team, message);
 
         x = scanner.nextInt();
         y = scanner.nextInt();

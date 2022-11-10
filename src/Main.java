@@ -1,11 +1,9 @@
+import pieces.Board;
 import pieces.Piece;
 import pieces.Pos;
 import pieces.Team;
 
-import java.util.Scanner;
-
 public class Main {
-    static Board board = new Board();
 
     public static void main(String[] args) {
         boolean gameState = true;
@@ -13,9 +11,7 @@ public class Main {
         Player player1 = new Player(Team.BLUE);
         Player player2 = new Player(Team.RED);
 
-        Scanner scanner = new Scanner(System.in);
-
-        board.initGameBoard();
+        Board.board.initGameBoard();
 
         while (gameState) {
 
@@ -24,7 +20,7 @@ public class Main {
             Pos player1InputPos;
             while (true) {
                 player1InputPos = player1.inputPos("이동할 기물을 선택하세요.");
-                player1SelectPiece = board.getPieceByPos(player1InputPos);
+                player1SelectPiece = Board.board.getPieceByPos(player1InputPos);
 
                 if (player1InputPos != null && player1SelectPiece != null && player1SelectPiece.getTeam() == Team.BLUE)
                     break;
@@ -44,11 +40,11 @@ public class Main {
             }
 
             player1SelectPiece.setPos(player1InputPos);
-            board.printBoard();
+            Board.board.printBoard();
 
 
         }
-
     }
+
 
 }

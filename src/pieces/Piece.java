@@ -58,6 +58,9 @@ public abstract class Piece {
         return shape;
     }
 
-    abstract public boolean canMove(Pos pos);
+    public boolean canMove(Pos pos) {
+        return Board.board.getPieceByPos(pos) != null;
+    }
+
     abstract public List<Pos> getCanMovePosList();
 }

@@ -1,8 +1,9 @@
-import pieces.*;
+package pieces;
 
 import java.util.ArrayList;
 
 public class Board {
+    public static Board board = new Board();
 
     private ArrayList<Piece> pieces = new ArrayList<>();
     private String[][] playground = new String[8][8];

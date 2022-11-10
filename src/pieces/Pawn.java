@@ -1,5 +1,6 @@
 package pieces;
 
+import javax.swing.plaf.basic.BasicOptionPaneUI;
 import java.util.List;
 
 public class Pawn extends Piece {
@@ -28,6 +29,4 @@ public class Pawn extends Piece {
     public List<Pos> getCanMovePosList() {
         return null;
     }
-
-
 }

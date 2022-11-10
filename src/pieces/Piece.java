@@ -35,6 +35,7 @@ public abstract class Piece {
 
     public void setPos(Pos pos){
         this.pos = pos;
+        this.moveCount++;
     }
 
     public void setPos(char x, int y){

@@ -27,10 +27,12 @@ public class Main {
                 player1InputPos = player1.inputPos("이동할 기물을 선택하세요.");
                 player1SelectPiece = board.getPieceByPos(player1InputPos);
 
-                if (player1InputPos != null) break;
+                if (player1InputPos != null && player1SelectPiece!=null && player1SelectPiece.getTeam()==Team.BLACK) break;
 
-                System.out.println("해당 위치에 기물이 없습니다.\n다시 선택하세요.");
+                System.out.println("기물을 다시 선택하세요.");
             }
+
+            System.out.println(player1SelectPiece);
 
             // 플레이어1 기물 이동
             while (true) {

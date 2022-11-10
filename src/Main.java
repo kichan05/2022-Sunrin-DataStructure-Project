@@ -4,12 +4,14 @@ import pieces.Team;
 
 import java.util.Scanner;
 
+
+
 public class Main {
+    static Board board = new Board();
 
     public static void main(String[] args) {
         boolean gameState = true;
 
-        Board board = new Board();
 
         Player player1 = new Player(Team.BLACK);
         Player player2 = new Player(Team.WHITE);
@@ -27,7 +29,8 @@ public class Main {
                 player1InputPos = player1.inputPos("이동할 기물을 선택하세요.");
                 player1SelectPiece = board.getPieceByPos(player1InputPos);
 
-                if (player1InputPos != null && player1SelectPiece!=null && player1SelectPiece.getTeam()==Team.BLACK) break;
+                if (player1InputPos != null && player1SelectPiece != null && player1SelectPiece.getTeam() == Team.BLACK)
+                    break;
 
                 System.out.println("기물을 다시 선택하세요.");
             }

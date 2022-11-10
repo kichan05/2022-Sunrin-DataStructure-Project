@@ -1,5 +1,7 @@
 package pieces;
 
+import java.text.Format;
+
 public class Pos {
     private int x;
     private int y;
@@ -43,5 +45,10 @@ public class Pos {
         Pos pos = (Pos)obj;
 
         return getX() == pos.getX() && getY() == pos.getY();
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Pos(x = %d, y = %d)", getX(), getY());
     }
 }

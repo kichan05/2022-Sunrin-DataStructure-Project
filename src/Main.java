@@ -1,10 +1,7 @@
 import pieces.Piece;
 import pieces.Pos;
 import pieces.Team;
-
 import java.util.Scanner;
-
-
 
 public class Main {
     static Board board = new Board();
@@ -53,4 +50,5 @@ public class Main {
         }
 
     }
+
 }

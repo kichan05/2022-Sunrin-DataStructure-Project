@@ -25,16 +25,14 @@ public class Board {
 
 
         System.out.println("     0ㅤㅤ1ㅤㅤ2ㅤㅤ3ㅤㅤ4ㅤㅤ5ㅤㅤ6ㅤㅤ7");
-        System.out.println("  --------------------------------------");
+        System.out.println("  ───────────────────────────────────────");
         for (int i = 0; i < 8; i++) {
-            System.out.print(i+" | ");
+            System.out.print(i+" │ ");
             for (int j = 0; j < 8; j++) {
-                System.out.print(playground[j][i]+" | ");
-
+                System.out.print(playground[j][i]+" │ ");
             }
-            System.out.println();
+            System.out.println("\n  ───────────────────────────────────────");
         }
-        System.out.println("  --------------------------------------");
 
     }
 

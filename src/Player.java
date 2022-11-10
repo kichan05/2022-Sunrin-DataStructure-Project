@@ -1,6 +1,5 @@
 import pieces.Pos;
 import pieces.Team;
-
 import java.util.Scanner;
 
 public class Player {

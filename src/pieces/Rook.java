@@ -9,12 +9,6 @@ public class Rook extends Piece {
     }
 
     @Override
-    public boolean canMove(char x, int y) {
-//        Pos pos = new Pos(x, y);
-        return false;
-    }
-
-    @Override
     public boolean canMove(Pos pos) {
 
         return false;

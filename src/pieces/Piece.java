@@ -55,7 +55,6 @@ public abstract class Piece {
             return shapeWhite;
     }
 
-    abstract public boolean canMove(char x, int y);
     abstract public boolean canMove(Pos pos);
     abstract public List<Pos> getCanMovePosList();
 }

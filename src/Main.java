@@ -1,6 +1,8 @@
 import pieces.Piece;
 import pieces.Pos;
 import pieces.Team;
+import util.FontColor;
+
 import java.util.Scanner;
 
 public class Main {
@@ -8,6 +10,8 @@ public class Main {
 
     public static void main(String[] args) {
         boolean gameState = true;
+
+        System.out.printf("%s안농하세요%s", FontColor.BLUE.getFontColor(), FontColor.RESET.getFontColor());
 
 
         Player player1 = new Player(Team.BLACK);

@@ -5,20 +5,12 @@ import java.util.ArrayList;
 public class Board {
 
     private ArrayList<Piece> pieces = new ArrayList<>();
-    private char[][] playground
-            = {{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-            {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-            {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-            {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-            {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-            {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-            {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '},
-            {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '}};
+    private String[][] playground = new String[8][8];
 
     public void printBoard() {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                playground[j][i] = ' ';
+                playground[j][i] = "ㅤ";
             }
         }
 
@@ -26,19 +18,24 @@ public class Board {
             int pieceX = piece.getPosX();
             int pieceY = piece.getPosY();
 
-            playground[pieceX][pieceY] = piece.getShape();
+            playground[pieceX][pieceY] = Character.toString(piece.getShape());
         }
 
         System.out.print("\n\n\n\n");
 
-        System.out.println("====================");
+
+        System.out.println("     0ㅤㅤ1ㅤㅤ2ㅤㅤ3ㅤㅤ4ㅤㅤ5ㅤㅤ6ㅤㅤ7");
+        System.out.println("  --------------------------------------");
         for (int i = 0; i < 8; i++) {
+            System.out.print(i+" | ");
             for (int j = 0; j < 8; j++) {
-                System.out.print(playground[j][i]+" ");
+                System.out.print(playground[j][i]+" | ");
+
             }
             System.out.println();
         }
-        System.out.println("====================");
+        System.out.println("  --------------------------------------");
+
     }
 
     public void initGameBoard() {

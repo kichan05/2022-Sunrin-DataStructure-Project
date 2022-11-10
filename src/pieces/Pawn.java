@@ -9,11 +9,6 @@ public class Pawn extends Piece {
     }
 
     @Override
-    public boolean canMove(char x, int y) {
-        return false;
-    }
-
-    @Override
     public boolean canMove(Pos pos) {
         if(pos!=null && pos.getX() <= 7 && pos.getX() >= 0 && pos.getY() <= 7 && pos.getY() >= 0) {
             if(getTeam() == Team.BLACK){

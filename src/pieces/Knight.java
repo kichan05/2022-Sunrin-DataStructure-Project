@@ -8,11 +8,6 @@ public class Knight extends Piece {
     }
 
     @Override
-    public boolean canMove(char x, int y) {
-        return false;
-    }
-
-    @Override
     public boolean canMove(Pos pos) {
         return false;
     }

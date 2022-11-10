@@ -1,22 +1,22 @@
 package pieces;
 
+import util.FontColor;
+
 import java.util.List;
 
 public abstract class Piece {
     private Pos pos;
     private final Team team;
 
-    private final char shapeWhite;
-    private final char shapeBlack;
+    private final char shape;
 
     private int moveCount;
 
-    Piece(int x, int y, Team team, char shapeWhite, char shapeBlack){
+    Piece(int x, int y, Team team, char shapeWhite){
         this.pos = new Pos(x, y);
         this.team = team;
 
-        this.shapeWhite = shapeWhite;
-        this.shapeBlack = shapeBlack;
+        this.shape = shapeWhite;
 
         this.moveCount = 0;
     }
@@ -48,11 +48,14 @@ public abstract class Piece {
 
     public int getMoveCount() { return moveCount; }
 
+    public String getPrintShape() {
+        String fontColor = getTeam() == Team.BLUE ? FontColor.BLUE.getFontColor() : FontColor.RED.getFontColor();
+
+        return String.format("%s%c%s", fontColor, shape, FontColor.RESET.getFontColor());
+    }
+
     public char getShape() {
-        if(team == Team.BLACK)
-            return shapeBlack;
-        else
-            return shapeWhite;
+        return shape;
     }
 
     abstract public boolean canMove(Pos pos);

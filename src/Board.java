@@ -18,7 +18,7 @@ public class Board {
             int pieceX = piece.getPosX();
             int pieceY = piece.getPosY();
 
-            playground[pieceX][pieceY] = Character.toString(piece.getShape());
+            playground[pieceX][pieceY] = piece.getPrintShape();
         }
 
         System.out.print("\n\n\n\n");
@@ -39,25 +39,25 @@ public class Board {
     }
 
     public void initGameBoard() {
-        pieces.add(new Rook(0, 0, Team.WHITE));
-        pieces.add(new Knight(1, 0, Team.WHITE));
-        pieces.add(new Bishop(2, 0, Team.WHITE));
-        pieces.add(new Queen(3, 0, Team.WHITE));
-        pieces.add(new King(4, 0, Team.WHITE));
-        pieces.add(new Bishop(5, 0, Team.WHITE));
-        pieces.add(new Knight(6, 0, Team.WHITE));
-        pieces.add(new Rook(7, 0, Team.WHITE));
-        for (int i = 0; i < 8; i++) pieces.add(new Pawn(i, 1, Team.WHITE));
+        pieces.add(new Rook(0, 0, Team.RED));
+        pieces.add(new Knight(1, 0, Team.RED));
+        pieces.add(new Bishop(2, 0, Team.RED));
+        pieces.add(new Queen(3, 0, Team.RED));
+        pieces.add(new King(4, 0, Team.RED));
+        pieces.add(new Bishop(5, 0, Team.RED));
+        pieces.add(new Knight(6, 0, Team.RED));
+        pieces.add(new Rook(7, 0, Team.RED));
+        for (int i = 0; i < 8; i++) pieces.add(new Pawn(i, 1, Team.RED));
 
-        pieces.add(new Rook(0, 7, Team.BLACK));
-        pieces.add(new Knight(1, 7, Team.BLACK));
-        pieces.add(new Bishop(2, 7, Team.BLACK));
-        pieces.add(new Queen(3, 7, Team.BLACK));
-        pieces.add(new King(4, 7, Team.BLACK));
-        pieces.add(new Bishop(5, 7, Team.BLACK));
-        pieces.add(new Knight(6, 7, Team.BLACK));
-        pieces.add(new Rook(7, 7, Team.BLACK));
-        for (int i = 0; i < 8; i++) pieces.add(new Pawn(i, 6, Team.BLACK));
+        pieces.add(new Rook(0, 7, Team.BLUE));
+        pieces.add(new Knight(1, 7, Team.BLUE));
+        pieces.add(new Bishop(2, 7, Team.BLUE));
+        pieces.add(new Queen(3, 7, Team.BLUE));
+        pieces.add(new King(4, 7, Team.BLUE));
+        pieces.add(new Bishop(5, 7, Team.BLUE));
+        pieces.add(new Knight(6, 7, Team.BLUE));
+        pieces.add(new Rook(7, 7, Team.BLUE));
+        for (int i = 0; i < 8; i++) pieces.add(new Pawn(i, 6, Team.BLUE));
 
         printBoard();
     }

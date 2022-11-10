@@ -1,7 +1,6 @@
 import pieces.Piece;
 import pieces.Pos;
 import pieces.Team;
-import util.FontColor;
 
 import java.util.Scanner;
 
@@ -11,11 +10,8 @@ public class Main {
     public static void main(String[] args) {
         boolean gameState = true;
 
-        System.out.printf("%s안농하세요%s", FontColor.BLUE.getFontColor(), FontColor.RESET.getFontColor());
-
-
-        Player player1 = new Player(Team.BLACK);
-        Player player2 = new Player(Team.WHITE);
+        Player player1 = new Player(Team.BLUE);
+        Player player2 = new Player(Team.RED);
 
         Scanner scanner = new Scanner(System.in);
 
@@ -30,13 +26,13 @@ public class Main {
                 player1InputPos = player1.inputPos("이동할 기물을 선택하세요.");
                 player1SelectPiece = board.getPieceByPos(player1InputPos);
 
-                if (player1InputPos != null && player1SelectPiece != null && player1SelectPiece.getTeam() == Team.BLACK)
+                if (player1InputPos != null && player1SelectPiece != null && player1SelectPiece.getTeam() == Team.BLUE)
                     break;
 
                 System.out.println("기물을 다시 선택하세요.");
             }
 
-            System.out.println(player1SelectPiece);
+            System.out.println(player1SelectPiece.getPrintShape());
 
             // 플레이어1 기물 이동
             while (true) {

@@ -61,10 +61,8 @@ public class Board {
         printBoard();
     }
 
-    public void clearBoard() {
-        pieces.clear();
-    }
-
+    /** 좌표를 입력받고 보드판에서 해당 위치에 말이 있는지 확인
+     * 있으면 해당 말 객체를 반환, 없으면 null 반환 */
     public Piece getPieceByPos(Pos pos){
         for(Piece i : pieces) {
             if(i.getPos().equals(pos)){
@@ -73,5 +71,13 @@ public class Board {
         }
 
         return null;
+    }
+
+    public boolean isCanMove(Pos pos){
+        return getPieceByPos(pos) == null;
+    }
+
+    public void clearBoard() {
+        pieces.clear();
     }
 }

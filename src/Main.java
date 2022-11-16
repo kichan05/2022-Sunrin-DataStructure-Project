@@ -46,6 +46,10 @@ public class Main {
                 System.out.println("기물을 다시 선택하세요.");
             }
 
+//            for(Pos i : selectPiece.getCanMovePosList()){
+//                System.out.println(i);
+//            }
+
             /* 선택한 기물 이동 */
             while (true) {
                 inputPos = currentPlayer.inputPos("기물을 이동할 위치를 선택하세요.");

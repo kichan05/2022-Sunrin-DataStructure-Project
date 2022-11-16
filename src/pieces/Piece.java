@@ -48,6 +48,13 @@ public abstract class Piece {
 
     public int getMoveCount() { return moveCount; }
 
+    @Override
+    public String toString() {
+        String fontColor = getTeam() == Team.BLUE ? FontColor.BLUE.getFontColor() : FontColor.RED.getFontColor();
+
+        return String.format("%s%c%s", fontColor, shape, FontColor.RESET.getFontColor());
+    }
+
     public String getPrintShape() {
         String fontColor = getTeam() == Team.BLUE ? FontColor.BLUE.getFontColor() : FontColor.RED.getFontColor();
 
@@ -59,7 +66,6 @@ public abstract class Piece {
     }
 
     public boolean canMove() {
-        System.out.println("실행");
         return !(getCanMovePosList().isEmpty());
     }
 

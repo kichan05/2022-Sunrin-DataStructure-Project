@@ -8,11 +8,6 @@ public class Bishop extends Piece {
     }
 
     @Override
-    public boolean canMove(Pos pos) {
-        return false;
-    }
-
-    @Override
     public List<Pos> getCanMovePosList() {
         return null;
     }

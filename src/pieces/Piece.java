@@ -58,8 +58,21 @@ public abstract class Piece {
         return shape;
     }
 
+    public boolean canMove() {
+        System.out.println("실행");
+        return !(getCanMovePosList().isEmpty());
+    }
+
     public boolean canMove(Pos pos) {
-        return Board.board.getPieceByPos(pos) != null;
+        List<Pos> moveList = getCanMovePosList();
+
+        for(Pos i : moveList){
+            if(pos.equals(i)){
+                return true;
+            }
+        }
+
+        return false;
     }
 
     abstract public List<Pos> getCanMovePosList();

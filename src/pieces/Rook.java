@@ -10,19 +10,6 @@ public class Rook extends Piece {
         super(x, y, team, '♜');
     }
 
-    @Override
-    public boolean canMove(Pos pos) {
-        List<Pos> moveList = getCanMovePosList();
-
-        for(Pos i : moveList){
-            if(pos.equals(i)){
-                return true;
-            }
-        }
-
-        return false;
-    }
-
     /** 룩의 위치를 기준으로, 동서남북으로 위치를 보면서 탐색 */
     @Override
     public List<Pos> getCanMovePosList() {
@@ -63,6 +50,9 @@ public class Rook extends Piece {
 
             posList.add(p);
         }
+
+        for(Pos i : posList)
+            System.out.println(i);
 
         return posList;
     }

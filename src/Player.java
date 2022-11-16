@@ -3,7 +3,11 @@ import pieces.Team;
 import java.util.Scanner;
 
 public class Player {
-    Team team;
+    private Team team;
+
+    public Team getTeam() {
+        return team;
+    }
 
     public Player(Team team) {
         this.team = team;

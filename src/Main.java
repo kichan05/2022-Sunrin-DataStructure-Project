@@ -8,45 +8,51 @@ public class Main {
     public static void main(String[] args) {
         boolean gameState = true;
 
-        Player player1 = new Player(Team.BLUE);
-        Player player2 = new Player(Team.RED);
+        Player[] players = {new Player(Team.BLUE), new Player(Team.RED)};
+        int playerIndex = 0;
 
         Board.board.initGameBoard();
 
         while (gameState) {
-
             // 플레이어1 기물 선택
-            Piece player1SelectPiece;
-            Pos player1InputPos;
+            Player currentPlayer = players[playerIndex % 2];
+            Piece selectPiece;
+            Pos inputPos;
             while (true) {
-                player1InputPos = player1.inputPos("이동할 기물을 선택하세요.");
-                player1SelectPiece = Board.board.getPieceByPos(player1InputPos);
+                inputPos = currentPlayer.inputPos("이동할 기물을 선택하세요.");
+                selectPiece = Board.board.getPieceByPos(inputPos);
 
-                if (player1InputPos != null && player1SelectPiece != null && player1SelectPiece.getTeam() == Team.BLUE)
+                if(inputPos == null){
+                    System.out.println("잘못된 입력입니다.");
+                }
+                else if(selectPiece == null){
+                    System.out.println("해당 위치에 기물이 없습니다.");
+                }
+                else if(selectPiece.getTeam() != currentPlayer.getTeam()){
+                    System.out.println("상대팀의 기물은 선택 할 수 없습니다.");
+                }
+                else{
                     break;
+                }
 
                 System.out.println("기물을 다시 선택하세요.");
             }
 
-            System.out.println(player1SelectPiece.getPrintShape());
-
-            for(Pos i : player1SelectPiece.getCanMovePosList()){
-                System.out.println(i);
-            }
+            System.out.println(selectPiece.getPrintShape());
 
             // 플레이어1 기물 이동
             while (true) {
-                player1InputPos = player1.inputPos("기물을 이동할 위치를 선택하세요.");
+                inputPos = currentPlayer.inputPos("기물을 이동할 위치를 선택하세요.");
 
-                if (player1SelectPiece.canMove(player1InputPos)) break;
+                if (selectPiece.canMove(inputPos)) break;
 
                 System.out.println("해당 위치로 이동할 수 없습니다.\n다시 선택하세요.");
             }
 
-            player1SelectPiece.setPos(player1InputPos);
+            selectPiece.setPos(inputPos);
             Board.board.printBoard();
 
-
+            playerIndex++;
         }
     }
 

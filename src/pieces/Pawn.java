@@ -1,6 +1,6 @@
 package pieces;
 
-import javax.swing.plaf.basic.BasicOptionPaneUI;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Pawn extends Piece {
@@ -10,23 +10,32 @@ public class Pawn extends Piece {
     }
 
     @Override
-    public boolean canMove(Pos pos) {
-        if(pos!=null && pos.getX() <= 7 && pos.getX() >= 0 && pos.getY() <= 7 && pos.getY() >= 0) {
-            if(getTeam() == Team.BLUE){
-                if(getPosY()==pos.getY() + 1 && getPosX()==pos.getX()) return true;
-                else return getPosY() == pos.getY() + 2 && getMoveCount() == 0 && getPosX()==pos.getX();
-            }
-            else {
-                if(getPosY()==pos.getY() - 1 && getPosX()==pos.getX()) return true;
-                else return getPosY() == pos.getY() - 2 && getMoveCount() == 0 && getPosX()==pos.getX();
-            }
-
-        }
-        return false;
-    }
-
-    @Override
     public List<Pos> getCanMovePosList() {
-        return null;
+        ArrayList<Pos> posList = new ArrayList<Pos>();
+
+        if(getTeam() == Team.BLUE){
+            Pos tempPos = new Pos(getPosX(), getPosY() - 1);
+            if(Board.board.isPosEmpty(tempPos)){
+                posList.add(tempPos);
+
+                tempPos = new Pos(getPosX(), getPosY() - 2);
+                if(tempPos.inBoard() && getMoveCount() == 0 && Board.board.isPosEmpty(tempPos)){
+                    posList.add(tempPos);
+                }
+            }
+        }
+        else {
+            Pos tempPos = new Pos(getPosX(), getPosY() + 1);
+            if(Board.board.isPosEmpty(tempPos)){
+                posList.add(tempPos);
+
+                tempPos = new Pos(getPosX(), getPosY() + 2);
+                if(tempPos.inBoard() && getMoveCount() == 0 && Board.board.isPosEmpty(tempPos)){
+                    posList.add(tempPos);
+                }
+            }
+        }
+
+        return posList;
     }
 }

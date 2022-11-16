@@ -1,7 +1,5 @@
 package pieces;
 
-import com.sun.tools.javac.Main;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +16,7 @@ public class Rook extends Piece {
         for(int y = getPosY() + 1; y < 8; y++) {
             Pos p = new Pos(getPosX(), y);
 
-            if(!Board.board.isCanMove(p))
+            if(!Board.board.isPosEmpty(p))
                 break;
 
             posList.add(p);
@@ -27,7 +25,7 @@ public class Rook extends Piece {
         for(int y = getPosY() - 1; 0 <= y ; y--) {
             Pos p = new Pos(getPosX(), y);
 
-            if(!Board.board.isCanMove(p))
+            if(!Board.board.isPosEmpty(p))
                 break;
 
             posList.add(p);
@@ -36,7 +34,7 @@ public class Rook extends Piece {
         for(int x = getPosY() + 1; x < 8; x++) {
             Pos p = new Pos(x, getPosY());
 
-            if(!Board.board.isCanMove(p))
+            if(!Board.board.isPosEmpty(p))
                 break;
 
             posList.add(p);
@@ -45,7 +43,7 @@ public class Rook extends Piece {
         for(int x = getPosY() - 1; 0 <= x; x--) {
             Pos p = new Pos(x, getPosY());
 
-            if(!Board.board.isCanMove(p))
+            if(!Board.board.isPosEmpty(p))
                 break;
 
             posList.add(p);

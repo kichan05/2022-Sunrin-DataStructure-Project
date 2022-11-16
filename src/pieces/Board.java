@@ -73,7 +73,7 @@ public class Board {
         return null;
     }
 
-    public boolean isCanMove(Pos pos){
+    public boolean isPosEmpty(Pos pos){
         return getPieceByPos(pos) == null;
     }
 

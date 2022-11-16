@@ -1,5 +1,6 @@
 package pieces;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Bishop extends Piece {
@@ -9,7 +10,34 @@ public class Bishop extends Piece {
 
     @Override
     public List<Pos> getCanMovePosList() {
-        return null;
+        ArrayList<Pos> posList = new ArrayList<Pos>();
+        int x, y;
+
+        x = getPosX() - 1;
+        y = getPosY() - 1;
+        while (0 <= x && 0 <= y && Board.board.isCanMove(new Pos(x, y))){
+            posList.add(new Pos(x--, y--));
+        }
+
+        x = getPosX() + 1;
+        y = getPosY() - 1;
+        while (x < 8 && 0 <= y && Board.board.isCanMove(new Pos(x, y))){
+            posList.add(new Pos(x++, y--));
+        }
+
+        x = getPosX() - 1;
+        y = getPosY() + 1;
+        while (0 <= x && y < 8 && Board.board.isCanMove(new Pos(x, y))){
+            posList.add(new Pos(x--, y++));
+        }
+
+        x = getPosX() + 1;
+        y = getPosY() + 1;
+        while (x < 8 && y < 8 && Board.board.isCanMove(new Pos(x, y))){
+            posList.add(new Pos(x++, y++));
+        }
+
+        return posList;
     }
 
 

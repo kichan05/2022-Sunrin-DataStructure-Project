@@ -30,6 +30,10 @@ public class Main {
 
             System.out.println(player1SelectPiece.getPrintShape());
 
+            for(Pos i : player1SelectPiece.getCanMovePosList()){
+                System.out.println(i);
+            }
+
             // 플레이어1 기물 이동
             while (true) {
                 player1InputPos = player1.inputPos("기물을 이동할 위치를 선택하세요.");

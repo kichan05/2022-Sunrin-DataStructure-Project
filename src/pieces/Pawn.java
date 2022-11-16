@@ -11,7 +11,7 @@ public class Pawn extends Piece {
 
     @Override
     public List<Pos> getCanMovePosList() {
-        ArrayList<Pos> posList = new ArrayList<Pos>();
+        ArrayList<Pos> posList = new ArrayList<>();
 
         Pos tempPos = new Pos(getPosX(), getPosY() + ((getTeam() == Team.BLUE) ? -1 : 1));
         Piece posPiece = Board.board.getPieceByPos(tempPos);

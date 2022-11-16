@@ -46,9 +46,12 @@ public class Main {
                 System.out.println("기물을 다시 선택하세요.");
             }
 
-            for (Pos i : selectPiece.getCanMovePosList()){
-                System.out.println(i);
-            }
+            selectPiece.select();
+            Board.board.printBoard();
+
+//            for (Pos i : selectPiece.getCanMovePosList()){
+//                System.out.println(i);
+//            }
 
             /* 선택한 기물 이동 */
             while (true) {
@@ -69,7 +72,7 @@ public class Main {
             System.out.printf("%s입력한 좌표> %d, %d%s\n", FontColor.PURPLE.getFontColor(), inputPos.getX(), inputPos.getY(), FontColor.RESET.getFontColor());
 
 
-
+            selectPiece.unSelect();
             selectPiece.setPos(inputPos);
             Board.board.printBoard();
 

@@ -19,7 +19,7 @@ public class Board {
             int pieceX = piece.getPosX();
             int pieceY = piece.getPosY();
 
-            playground[pieceX][pieceY] = piece.toString();
+            playground[pieceX][pieceY] = piece.toBoardString();
         }
 
         System.out.print("\n\n\n\n");

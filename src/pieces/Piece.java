@@ -2,6 +2,7 @@ package pieces;
 
 import util.FontColor;
 
+import java.awt.*;
 import java.util.List;
 
 public abstract class Piece {
@@ -11,6 +12,8 @@ public abstract class Piece {
     private final char shape;
 
     private int moveCount;
+
+    private boolean isSelected = false;
 
     Piece(int x, int y, Team team, char shapeWhite){
         this.pos = new Pos(x, y);
@@ -38,25 +41,38 @@ public abstract class Piece {
         this.moveCount++;
     }
 
-    public void setPos(char x, int y){
-        pos.setPos(x, y);
-    }
-
     public Team getTeam(){
         return team;
     }
 
     public int getMoveCount() { return moveCount; }
 
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public void select() {
+        isSelected = true;
+    }
+
+    public void unSelect() {
+        isSelected = false;
+    }
+
+    public String toBoardString() {
+        if(isSelected){
+            return String.format("%s%c%s", FontColor.YELLOW.getFontColor(), shape, FontColor.RESET.getFontColor());
+        }
+        else {
+            return toString();
+        }
+    }
+
     @Override
     public String toString() {
         String fontColor = getTeam() == Team.BLUE ? FontColor.BLUE.getFontColor() : FontColor.RED.getFontColor();
 
         return String.format("%s%c%s", fontColor, shape, FontColor.RESET.getFontColor());
-    }
-
-    public char getShape() {
-        return shape;
     }
 
     public boolean canMove() {

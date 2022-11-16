@@ -37,12 +37,16 @@ public class Pos {
         this.y = pos.getY();
     }
 
+    public boolean inBoard() {
+        return 0 <= x && x < 8 && 0 <= y && y < 8;
+    }
+
     @Override
     public boolean equals(Object obj) {
-        if(!(obj instanceof Pos)){
+        if (!(obj instanceof Pos)) {
             throw new RuntimeException("Type");
         }
-        Pos pos = (Pos)obj;
+        Pos pos = (Pos) obj;
 
         return getX() == pos.getX() && getY() == pos.getY();
     }

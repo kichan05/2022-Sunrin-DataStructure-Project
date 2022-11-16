@@ -17,38 +17,70 @@ public class Bishop extends Piece {
 
         x = getPosX() - 1;
         y = getPosY() - 1;
-        pos = new Pos(x, y);
-        posPiece = Board.board.getPieceByPos(pos);
-        while (pos.inBoard() && (posPiece == null || posPiece.getTeam() != getTeam())) {
+        while (true) {
+            pos = new Pos(x--, y--);
+            if(!pos.inBoard())
+                break;
+            posPiece = Board.board.getPieceByPos(pos);
+            if(posPiece != null){
+                if(posPiece.getTeam() != getTeam())
+                    posList.add(pos);
+
+                break;
+            }
+
             posList.add(pos);
-            pos = new Pos(--x, --y);
         }
 
         x = getPosX() + 1;
         y = getPosY() - 1;
-        pos = new Pos(x, y);
-        posPiece = Board.board.getPieceByPos(pos);
-        while (pos.inBoard() && (posPiece == null || posPiece.getTeam() != getTeam())) {
+        while (true) {
+            pos = new Pos(x++, y--);
+            if(!pos.inBoard())
+                break;
+            posPiece = Board.board.getPieceByPos(pos);
+            if(posPiece != null){
+                if(posPiece.getTeam() != getTeam())
+                    posList.add(pos);
+
+                break;
+            }
+
             posList.add(pos);
-            pos = new Pos(++x, --y);
         }
 
         x = getPosX() - 1;
         y = getPosY() + 1;
-        pos = new Pos(x, y);
-        posPiece = Board.board.getPieceByPos(pos);
-        while (pos.inBoard() && (posPiece == null || posPiece.getTeam() != getTeam())) {
+        while (true) {
+            pos = new Pos(x--, y++);
+            if(!pos.inBoard())
+                break;
+            posPiece = Board.board.getPieceByPos(pos);
+            if(posPiece != null){
+                if(posPiece.getTeam() != getTeam())
+                    posList.add(pos);
+
+                break;
+            }
+
             posList.add(pos);
-            pos = new Pos(--x, ++y);
         }
 
         x = getPosX() + 1;
         y = getPosY() + 1;
-        pos = new Pos(x, y);
-        posPiece = Board.board.getPieceByPos(pos);
-        while (pos.inBoard() && (posPiece == null || posPiece.getTeam() != getTeam())) {
+        while (true) {
+            pos = new Pos(x++, y++);
+            if(!pos.inBoard())
+                break;
+            posPiece = Board.board.getPieceByPos(pos);
+            if(posPiece != null){
+                if(posPiece.getTeam() != getTeam())
+                    posList.add(pos);
+
+                break;
+            }
+
             posList.add(pos);
-            pos = new Pos(++x, ++y);
         }
 
         return posList;

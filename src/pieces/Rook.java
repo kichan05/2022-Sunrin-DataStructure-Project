@@ -9,7 +9,7 @@ public class Rook extends Piece {
     }
 
     /**
-     * 룩의 위치를 기준으로, 동서남북으로 위치를 보면서 탐색
+     * 룩의 위치를 기준으로, 동서남북으로 위치를 보면서 본다
      */
     @Override
     public List<Pos> getCanMovePosList() {
@@ -19,8 +19,12 @@ public class Rook extends Piece {
             Pos p = new Pos(getPosX(), y);
 
             Piece posPiece = Board.board.getPieceByPos(p);
-            if (posPiece == null || posPiece.getTeam() != getTeam())
+            if(posPiece != null){
+                if(posPiece.getTeam() != getTeam())
+                    posList.add(p);
+
                 break;
+            }
 
             posList.add(p);
         }
@@ -28,35 +32,44 @@ public class Rook extends Piece {
         for (int y = getPosY() - 1; 0 <= y; y--) {
             Pos p = new Pos(getPosX(), y);
 
-            Piece posPiecs = Board.board.getPieceByPos(p);
-            if (posPiecs == null || posPiecs.getTeam() != getTeam())
+            Piece posPiece = Board.board.getPieceByPos(p);
+            if(posPiece != null){
+                if(posPiece.getTeam() != getTeam())
+                    posList.add(p);
+
                 break;
+            }
 
             posList.add(p);
         }
 
-        for (int x = getPosY() + 1; x < 8; x++) {
+        for (int x = getPosX() + 1; x < 8; x++) {
             Pos p = new Pos(x, getPosY());
 
-            Piece posPiecs = Board.board.getPieceByPos(p);
-            if (posPiecs == null || posPiecs.getTeam() != getTeam())
+            Piece posPiece = Board.board.getPieceByPos(p);
+            if(posPiece != null){
+                if(posPiece.getTeam() != getTeam())
+                    posList.add(p);
+
                 break;
+            }
 
             posList.add(p);
         }
 
-        for (int x = getPosY() - 1; 0 <= x; x--) {
+        for (int x = getPosX() - 1; 0 <= x; x--) {
             Pos p = new Pos(x, getPosY());
 
-            Piece posPiecs = Board.board.getPieceByPos(p);
-            if (posPiecs == null || posPiecs.getTeam() != getTeam())
+            Piece posPiece = Board.board.getPieceByPos(p);
+            if(posPiece != null){
+                if(posPiece.getTeam() != getTeam())
+                    posList.add(p);
+
                 break;
+            }
 
             posList.add(p);
         }
-
-        for (Pos i : posList)
-            System.out.println(i);
 
         return posList;
     }

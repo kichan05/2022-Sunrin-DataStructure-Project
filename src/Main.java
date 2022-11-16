@@ -46,7 +46,7 @@ public class Main {
                 System.out.println("기물을 다시 선택하세요.");
             }
 
-            for(Pos i : selectPiece.getCanMovePosList()){
+            for (Pos i : selectPiece.getCanMovePosList()){
                 System.out.println(i);
             }
 
@@ -73,7 +73,8 @@ public class Main {
             selectPiece.setPos(inputPos);
             Board.board.printBoard();
 
-            turnCount++;
+//            turnCount++;
+            //행마법 테스트 때문에 잠깐 주석처리함
         }
     }
 

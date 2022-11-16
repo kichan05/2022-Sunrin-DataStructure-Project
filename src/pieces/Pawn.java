@@ -13,28 +13,16 @@ public class Pawn extends Piece {
     public List<Pos> getCanMovePosList() {
         ArrayList<Pos> posList = new ArrayList<Pos>();
 
-        if(getTeam() == Team.BLUE){
-            Pos tempPos = new Pos(getPosX(), getPosY() - 1);
-            if(Board.board.isPosEmpty(tempPos)){
-                posList.add(tempPos);
+        Pos tempPos = new Pos(getPosX(), getPosY() + ((getTeam() == Team.BLUE) ? - 1 : 1));
+        if(Board.board.isPosEmpty(tempPos)){
+            posList.add(tempPos);
 
-                tempPos = new Pos(getPosX(), getPosY() - 2);
-                if(tempPos.inBoard() && getMoveCount() == 0 && Board.board.isPosEmpty(tempPos)){
-                    posList.add(tempPos);
-                }
+            tempPos = new Pos(getPosX(), getPosY() + ((getTeam() == Team.BLUE) ? - 2 : 2));
+            if(tempPos.inBoard() && getMoveCount() == 0 && Board.board.isPosEmpty(tempPos)){
+                posList.add(tempPos);
             }
         }
-        else {
-            Pos tempPos = new Pos(getPosX(), getPosY() + 1);
-            if(Board.board.isPosEmpty(tempPos)){
-                posList.add(tempPos);
 
-                tempPos = new Pos(getPosX(), getPosY() + 2);
-                if(tempPos.inBoard() && getMoveCount() == 0 && Board.board.isPosEmpty(tempPos)){
-                    posList.add(tempPos);
-                }
-            }
-        }
 
         return posList;
     }

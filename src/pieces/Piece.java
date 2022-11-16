@@ -55,12 +55,6 @@ public abstract class Piece {
         return String.format("%s%c%s", fontColor, shape, FontColor.RESET.getFontColor());
     }
 
-    public String getPrintShape() {
-        String fontColor = getTeam() == Team.BLUE ? FontColor.BLUE.getFontColor() : FontColor.RED.getFontColor();
-
-        return String.format("%s%c%s", fontColor, shape, FontColor.RESET.getFontColor());
-    }
-
     public char getShape() {
         return shape;
     }

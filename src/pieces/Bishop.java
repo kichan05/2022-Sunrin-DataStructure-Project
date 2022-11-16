@@ -12,29 +12,43 @@ public class Bishop extends Piece {
     public List<Pos> getCanMovePosList() {
         ArrayList<Pos> posList = new ArrayList<Pos>();
         int x, y;
+        Pos pos;
+        Piece posPiece;
 
         x = getPosX() - 1;
         y = getPosY() - 1;
-        while (0 <= x && 0 <= y && Board.board.isPosEmpty(new Pos(x, y))){
-            posList.add(new Pos(x--, y--));
+        pos = new Pos(x, y);
+        posPiece = Board.board.getPieceByPos(pos);
+        while (pos.inBoard() && (posPiece == null || posPiece.getTeam() != getTeam())) {
+            posList.add(pos);
+            pos = new Pos(--x, --y);
         }
 
         x = getPosX() + 1;
         y = getPosY() - 1;
-        while (x < 8 && 0 <= y && Board.board.isPosEmpty(new Pos(x, y))){
-            posList.add(new Pos(x++, y--));
+        pos = new Pos(x, y);
+        posPiece = Board.board.getPieceByPos(pos);
+        while (pos.inBoard() && (posPiece == null || posPiece.getTeam() != getTeam())) {
+            posList.add(pos);
+            pos = new Pos(++x, --y);
         }
 
         x = getPosX() - 1;
         y = getPosY() + 1;
-        while (0 <= x && y < 8 && Board.board.isPosEmpty(new Pos(x, y))){
-            posList.add(new Pos(x--, y++));
+        pos = new Pos(x, y);
+        posPiece = Board.board.getPieceByPos(pos);
+        while (pos.inBoard() && (posPiece == null || posPiece.getTeam() != getTeam())) {
+            posList.add(pos);
+            pos = new Pos(--x, ++y);
         }
 
         x = getPosX() + 1;
         y = getPosY() + 1;
-        while (x < 8 && y < 8 && Board.board.isPosEmpty(new Pos(x, y))){
-            posList.add(new Pos(x++, y++));
+        pos = new Pos(x, y);
+        posPiece = Board.board.getPieceByPos(pos);
+        while (pos.inBoard() && (posPiece == null || posPiece.getTeam() != getTeam())) {
+            posList.add(pos);
+            pos = new Pos(++x, ++y);
         }
 
         return posList;

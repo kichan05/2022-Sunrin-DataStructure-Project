@@ -15,35 +15,35 @@ public class Knight extends Piece {
         Pos pos;
 
         pos = new Pos(getPosX() - 1, getPosY() - 2);
-        if(pos.inBoard() && Board.board.isPosEmpty(pos))
+        if(pos.inBoard() && (Board.board.getPieceByPos(pos) == null || Board.board.getPieceByPos(pos).getTeam() != getTeam()))
             posList.add(pos);
 
         pos = new Pos(getPosX() - 1, getPosY() + 2);
-        if(pos.inBoard() && Board.board.isPosEmpty(pos))
+        if(pos.inBoard() && (Board.board.getPieceByPos(pos) == null || Board.board.getPieceByPos(pos).getTeam() != getTeam()))
             posList.add(pos);
 
         pos = new Pos(getPosX() - 2, getPosY() - 1);
-        if(pos.inBoard() && Board.board.isPosEmpty(pos))
+        if(pos.inBoard() && (Board.board.getPieceByPos(pos) == null || Board.board.getPieceByPos(pos).getTeam() != getTeam()))
             posList.add(pos);
 
         pos = new Pos(getPosX() - 2, getPosY() + 1);
-        if(pos.inBoard() && Board.board.isPosEmpty(pos))
+        if(pos.inBoard() && (Board.board.getPieceByPos(pos) == null || Board.board.getPieceByPos(pos).getTeam() != getTeam()))
             posList.add(pos);
 
         pos = new Pos(getPosX() + 1, getPosY() - 2);
-        if(pos.inBoard() && Board.board.isPosEmpty(pos))
+        if(pos.inBoard() && (Board.board.getPieceByPos(pos) == null || Board.board.getPieceByPos(pos).getTeam() != getTeam()))
             posList.add(pos);
 
         pos = new Pos(getPosX() + 1, getPosY() + 2);
-        if(pos.inBoard() && Board.board.isPosEmpty(pos))
+        if(pos.inBoard() && (Board.board.getPieceByPos(pos) == null || Board.board.getPieceByPos(pos).getTeam() != getTeam()))
             posList.add(pos);
 
         pos = new Pos(getPosX() + 2, getPosY() - 1);
-        if(pos.inBoard() && Board.board.isPosEmpty(pos))
+        if(pos.inBoard() && (Board.board.getPieceByPos(pos) == null || Board.board.getPieceByPos(pos).getTeam() != getTeam()))
             posList.add(pos);
 
         pos = new Pos(getPosX() + 2, getPosY() + 1);
-        if(pos.inBoard() && Board.board.isPosEmpty(pos))
+        if(pos.inBoard() && (Board.board.getPieceByPos(pos) == null || Board.board.getPieceByPos(pos).getTeam() != getTeam()))
             posList.add(pos);
 
         return posList;

@@ -1,15 +1,15 @@
 package pieces;
 
-import util.FontColor;
+import util.Color;
 
 import java.util.ArrayList;
 
 public class Board {
     public static Board board = new Board();
 
-    private ArrayList<Piece> pieces = new ArrayList<>();
+    private final ArrayList<Piece> pieces = new ArrayList<>();
     private ArrayList<Pos> canMovePosList = new ArrayList<>();
-    private String[][] playground = new String[8][8];
+    private final String[][] playground = new String[8][8];
 
     public void setCanMovePosList(ArrayList<Pos> posList) {
         canMovePosList = posList;
@@ -40,7 +40,7 @@ public class Board {
 
         // 선택한 말 움직일수 있는 위치 표시
         for (Pos pos : canMovePosList) {
-            playground[pos.getX()][pos.getY()] = FontColor.GREEN.getFontColor() + "○" + FontColor.RESET.getFontColor() ;
+            playground[pos.getX()][pos.getY()] = Color.GREEN.getFontColor() + "○" + Color.RESET.getFontColor() ;
         }
 
         // 기물들 표시

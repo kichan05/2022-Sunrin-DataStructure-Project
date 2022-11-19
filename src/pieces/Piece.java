@@ -1,8 +1,7 @@
 package pieces;
 
-import util.FontColor;
+import util.Color;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -90,7 +89,7 @@ public abstract class Piece {
      */
     public String toBoardString() {
         if (isCheck) {
-            return String.format("%s%c%s", FontColor.YELLOW.getFontColor(), shape, FontColor.RESET.getFontColor());
+            return String.format("%s%c%s", Color.YELLOW.getFontColor(), shape, Color.RESET.getFontColor());
         }
 
 //        if (isSelected) { // 선택 됐으면 노란색으로
@@ -105,9 +104,9 @@ public abstract class Piece {
      */
     @Override
     public String toString() {
-        String fontColor = getTeam() == Team.BLUE ? FontColor.BLUE.getFontColor() : FontColor.RED.getFontColor();
+        String fontColor = getTeam() == Team.BLUE ? Color.BLUE.getFontColor() : Color.RED.getFontColor();
 
-        return String.format("%s%c%s", fontColor, shape, FontColor.RESET.getFontColor());
+        return String.format("%s%c%s", fontColor, shape, Color.RESET.getFontColor());
     }
 
     /**

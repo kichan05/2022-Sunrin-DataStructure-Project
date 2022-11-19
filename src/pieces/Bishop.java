@@ -1,8 +1,6 @@
 package pieces;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Bishop extends Piece {
     public Bishop(int x, int y, Team team) {

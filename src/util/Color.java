@@ -1,6 +1,8 @@
 package util;
 
-public enum FontColor {
+import pieces.Team;
+
+public enum Color {
     BLACK, RED, GREEN, YELLOW, BLUE, PURPLE, CYAN, WHITE, RESET;
 
     public String getFontColor(){
@@ -49,6 +51,14 @@ public enum FontColor {
                 return "\u001B[0m";
         }
         return BLACK.getBackgroundColor();
+    }
+
+    public static String getTeamColor(Team team) {
+        if (team == Team.BLUE) {
+            return BLUE.getFontColor();
+        } else {
+            return RED.getFontColor();
+        }
     }
 }
 

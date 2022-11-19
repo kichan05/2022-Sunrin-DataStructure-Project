@@ -69,15 +69,17 @@ public abstract class Piece {
         return isDeath;
     }
 
+    /** 화면에 출력하는 용도의 문자열 변환 */
     public String toBoardString() {
-        if(isSelected){
+        if(isSelected){ // 선택 됐으면 노란색으로
             return String.format("%s%c%s", FontColor.YELLOW.getFontColor(), shape, FontColor.RESET.getFontColor());
         }
-        else {
+        else { //선택 안됐으면 기본 기물 색상으로
             return toString();
         }
     }
 
+    /** 팀 색상을 적용한 문자열 반환 */
     @Override
     public String toString() {
         String fontColor = getTeam() == Team.BLUE ? FontColor.BLUE.getFontColor() : FontColor.RED.getFontColor();
@@ -85,10 +87,12 @@ public abstract class Piece {
         return String.format("%s%c%s", fontColor, shape, FontColor.RESET.getFontColor());
     }
 
+    /** 해당 기물이 움직일 수 있는 위치가 있는지 */
     public boolean canMove() {
         return !(getCanMovePosList().isEmpty());
     }
 
+    /** 기물이 해당 위치로 이동 할 수 있는지 */
     public boolean canMove(Pos pos) {
         List<Pos> moveList = getCanMovePosList();
 
@@ -101,5 +105,6 @@ public abstract class Piece {
         return false;
     }
 
+    /** 기물이 움직일 수 있는 위치 리스트 반환 */
     abstract public ArrayList<Pos> getCanMovePosList();
 }

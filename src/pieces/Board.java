@@ -1,5 +1,7 @@
 package pieces;
 
+import util.FontColor;
+
 import java.util.ArrayList;
 
 public class Board {
@@ -22,14 +24,21 @@ public class Board {
     }
 
     public void printBoard() {
+        // 출력되는 문자열 배열 초기화
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 playground[j][i] = "ㅤ";
             }
         }
 
+        // 선택한 말 움직일수 있는 위치 표시
+        for (Pos pos : canMovePosList) {
+            playground[pos.getX()][pos.getY()] = FontColor.GREEN.getFontColor() + "○" + FontColor.RESET.getFontColor() ;
+        }
+
+        // 기물들 표시
         for (Piece piece : pieces) {
-            if(piece.isDeath())
+            if(piece.isDeath()) //이미 죽은 말이면 표시 안함
                 continue;
 
             int pieceX = piece.getPosX();
@@ -40,7 +49,7 @@ public class Board {
 
         System.out.print("\n\n\n\n");
 
-
+        // 출력판 표시
         System.out.println("     0ㅤㅤ1ㅤㅤ2ㅤㅤ3ㅤㅤ4ㅤㅤ5ㅤㅤ6ㅤㅤ7");
         System.out.println("  ───────────────────────────────────────");
         for (int i = 0; i < 8; i++) {

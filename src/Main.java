@@ -82,6 +82,7 @@ public class Main {
                 System.out.printf("%s죽은 기물> %s%s\n", FontColor.PURPLE.getFontColor(), Board.board.getPieceByPos(inputPos), FontColor.RESET.getFontColor());
             }
 
+            Board.board.clearCanMoveList();
             selectPiece.unSelect();
             selectPiece.setPos(inputPos);
             Board.board.printBoard();

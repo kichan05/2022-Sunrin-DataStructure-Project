@@ -2,6 +2,7 @@ import pieces.Board;
 import pieces.Piece;
 import pieces.Pos;
 import pieces.Team;
+import player.Ai;
 import player.Human;
 import player.Player;
 import util.Color;
@@ -13,7 +14,7 @@ public class Main {
     public static void main(String[] args) {
         boolean gameState = true;
 
-        Player[] players = {new Human(Team.BLUE), new Human(Team.RED)};
+        Player[] players = {new Human(Team.BLUE), new Ai(Team.RED)};
         int turnCount = 0;
 
         Board.board.initGameBoard();

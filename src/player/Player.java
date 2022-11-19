@@ -19,8 +19,11 @@ abstract public class Player {
         return team;
     }
 
-    /** 플레이어(인간 또는 인공지능)가 기물을 선택 해서  */
+    /** 플레이어(인간 또는 인공지능)가 기물을 선택 해서 반환합니다.  */
     abstract public Piece selectPiece();
+
+    /** 기물을 움직일 위치를 선택해서 반환합니다.  */
+    abstract public Pos selectMovePos(Piece selectPiece);
 
     public Pos inputPos(String message) {
         int x, y;

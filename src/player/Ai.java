@@ -35,4 +35,9 @@ public class Ai extends Player {
             }
         }
     }
+
+    @Override
+    public Pos selectMovePos(Piece selectPiece) {
+        return null;
+    }
 }

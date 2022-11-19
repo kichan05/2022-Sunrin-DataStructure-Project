@@ -13,14 +13,21 @@ public class Board {
 
     public void setCanMovePosList(ArrayList<Pos> posList) {
         canMovePosList = posList;
-    }
 
-    public void addCanMoveList(ArrayList<Pos> posList) {
-        canMovePosList.addAll(posList);
+        for (Pos pos : posList) {
+            Piece piece = getPieceByPos(pos);
+            if(piece != null) {
+                piece.check();
+            }
+        }
     }
 
     public void clearCanMoveList() {
         canMovePosList.clear();
+
+        for(Piece piece : pieces){
+            piece.unCheck();
+        }
     }
 
     public void printBoard() {

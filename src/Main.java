@@ -87,10 +87,8 @@ public class Main {
             selectPiece.setPos(inputPos);
             Board.board.printBoard();
 
-//            turnCount++;
+            turnCount++;
             //행마법 테스트 때문에 잠깐 주석처리함
         }
     }
-
-
 }

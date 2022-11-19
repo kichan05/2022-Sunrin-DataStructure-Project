@@ -15,10 +15,31 @@ public class Main {
     public static void main(String[] args) {
         boolean gameState = true;
 
-        Player[] players = {new AlphaChess(Team.BLUE), new AlphaChess(Team.RED)};
-//        Player[] players = {new Human(Team.BLUE), new Human(Team.RED)};
-//        Player[] players = {new Human(Team.BLUE), new AlphaChess(Team.RED)};
+        Player player1 = null, player2 = null;
+
+        int selectMenu = showMenu();
+        switch (selectMenu) {
+            case 1:
+                player1 = new Human(Team.BLUE);
+                player2 = new Human(Team.RED);
+                break;
+            case 2:
+                player1 = new Human(Team.BLUE);
+                player2 = new AlphaChess(Team.RED);
+                break;
+            case 3:
+                player1 = new AlphaChess(Team.BLUE);
+                player2 = new AlphaChess(Team.RED);
+                break;
+            case 4:
+                System.out.println("게임을 종료합니다.");
+                return;
+            default:
+                System.out.println("잘못된 입력입니다.");
+                break;
+        }
         int turnCount = 0;
+        Player[] players = {player1, player2};
 
         Board.board.initGameBoard();
 
@@ -58,6 +79,16 @@ public class Main {
 
             turnCount++;
         }
+    }
+
+    public static int showMenu() {
+        System.out.println("1. 인간 vs 인간");
+        System.out.println("2. 인간 vs 인공지능");
+        System.out.println("3. 인공지능 vs 인공지능");
+        System.out.println("4. 종료");
+        System.out.print("메뉴를 선택하세요 : ");
+
+        return scanner.nextInt();
     }
 
     private static void nextEnter() {

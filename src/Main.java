@@ -13,8 +13,6 @@ public class Main {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        boolean gameState = true;
-
         Player player1 = null, player2 = null;
 
         int selectMenu = showMenu();
@@ -38,11 +36,13 @@ public class Main {
                 System.out.println("잘못된 입력입니다.");
                 break;
         }
-        int turnCount = 0;
         Player[] players = {player1, player2};
+
 
         Board.board.initGameBoard();
 
+        int turnCount = 0;
+        boolean gameState = true;
         while (gameState) {
             Player currentPlayer = players[turnCount % 2];
 

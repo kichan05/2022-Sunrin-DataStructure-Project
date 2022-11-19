@@ -14,7 +14,7 @@ public class Main {
     public static void main(String[] args) {
         boolean gameState = true;
 
-        Player[] players = {new Human(Team.BLUE), new Ai(Team.RED)};
+        Player[] players = {new Ai(Team.BLUE), new Ai(Team.RED)};
         int turnCount = 0;
 
         Board.board.initGameBoard();
@@ -23,11 +23,11 @@ public class Main {
             Player currentPlayer = players[turnCount % 2];
             Piece selectedPiece = currentPlayer.selectPiece();
             System.out.printf("%s선택한 기물> %s%s\n", Color.PURPLE.getFontColor(), selectedPiece, Color.RESET.getFontColor());
-//            selectPiece.select();
-//            ArrayList<Pos> canMoveList = selectPiece.getCanMovePosList();
-//            Board.board.setCanMovePosList(canMoveList);
-//
-//            Board.board.printBoard();
+
+            selectedPiece.select(); //선택된 기물을 선택처리
+            ArrayList<Pos> canMoveList = selectedPiece.getCanMovePosList();
+            Board.board.setCanMovePosList(canMoveList);
+            Board.board.printBoard();
 
 //            for (Pos i : selectPiece.getCanMovePosList()){
 //                System.out.println(i);
@@ -57,9 +57,9 @@ public class Main {
 //                System.out.printf("%s죽은 기물> %s%s\n", Color.PURPLE.getColor(), Board.board.getPieceByPos(inputPos), Color.RESET.getColor());
 //            }
 //
-//            Board.board.clearCanMoveList();
-//            selectPiece.unSelect();
-//            selectPiece.setPos(inputPos);
+            Board.board.clearCanMoveList();
+            selectedPiece.unSelect();
+//            selectedPiece.setPos(inputPos);
 //            Board.board.printBoard();
 
             turnCount++;

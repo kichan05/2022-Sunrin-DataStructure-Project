@@ -4,7 +4,6 @@ import pieces.Board;
 import pieces.Piece;
 import pieces.Pos;
 import pieces.Team;
-import util.Color;
 
 public class Human extends Player {
     public Human(Team team) {

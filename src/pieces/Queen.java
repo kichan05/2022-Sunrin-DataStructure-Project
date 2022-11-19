@@ -15,7 +15,9 @@ public class Queen extends Piece {
 
     @Override
     public ArrayList<Pos> getCanMovePosList() {
-        return null;
+        ArrayList<Pos> posList = new ArrayList<>();
+
+        return posList;
     }
 
 

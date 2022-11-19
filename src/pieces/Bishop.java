@@ -9,7 +9,7 @@ public class Bishop extends Piece {
 
     @Override
     public ArrayList<Pos> getCanMovePosList() {
-        ArrayList<Pos> posList = new ArrayList<Pos>();
+        ArrayList<Pos> posList = new ArrayList<>();
         int x, y;
         Pos pos;
         Piece posPiece;
@@ -84,6 +84,4 @@ public class Bishop extends Piece {
 
         return posList;
     }
-
-
 }

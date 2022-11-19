@@ -40,7 +40,7 @@ public class Board {
 
         // 선택한 말 움직일수 있는 위치 표시
         for (Pos pos : canMovePosList) {
-            playground[pos.getX()][pos.getY()] = Color.GREEN.getFontColor() + "○" + Color.RESET.getFontColor() ;
+            playground[pos.getX()][pos.getY()] = Color.YELLOW.getFontColor() + "●" + Color.RESET.getFontColor() ;
         }
 
         // 기물들 표시

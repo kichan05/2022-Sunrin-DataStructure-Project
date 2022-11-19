@@ -92,9 +92,9 @@ public abstract class Piece {
             return String.format("%s%c%s", Color.YELLOW.getFontColor(), shape, Color.RESET.getFontColor());
         }
 
-//        if (isSelected) { // 선택 됐으면 노란색으로
-//            return String.format("%s%c%s", FontColor.GREEN.getFontColor(), shape, FontColor.RESET.getFontColor());
-//        }
+        if (isSelected) { // 선택 됐으면 노란색으로
+            return String.format("%s%c%s", Color.YELLOW.getFontColor(), shape, Color.RESET.getFontColor());
+        }
 
         return toString(); //선택 안됐으면 기본 기물 색상으로
     }

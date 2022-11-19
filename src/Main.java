@@ -2,20 +2,17 @@ import pieces.Board;
 import pieces.Piece;
 import pieces.Pos;
 import pieces.Team;
-import player.Ai;
-import player.Human;
+import player.AlphaChess;
 import player.Player;
 import util.Color;
-
-import java.util.ArrayList;
 
 public class Main {
 
     public static void main(String[] args) {
         boolean gameState = true;
 
-//        Player[] players = {new Ai(Team.BLUE), new Ai(Team.RED)};
-        Player[] players = {new Human(Team.BLUE), new Human(Team.RED)};
+        Player[] players = {new AlphaChess(Team.BLUE), new AlphaChess(Team.RED)};
+//        Player[] players = {new Human(Team.BLUE), new Human(Team.RED)};
         int turnCount = 0;
 
         Board.board.initGameBoard();

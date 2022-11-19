@@ -12,7 +12,7 @@ public class Rook extends Piece {
      * 룩의 위치를 기준으로, 동서남북으로 위치를 보면서 본다
      */
     @Override
-    public List<Pos> getCanMovePosList() {
+    public ArrayList<Pos> getCanMovePosList() {
         ArrayList<Pos> posList = new ArrayList<Pos>();
 
         for (int y = getPosY() + 1; y < 8; y++) {

@@ -3,6 +3,7 @@ package pieces;
 import util.FontColor;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Piece {
@@ -14,6 +15,7 @@ public abstract class Piece {
     private int moveCount;
 
     private boolean isSelected = false;
+    private boolean isDeath = false;
 
     Piece(int x, int y, Team team, char shapeWhite){
         this.pos = new Pos(x, y);
@@ -59,6 +61,14 @@ public abstract class Piece {
         isSelected = false;
     }
 
+    public void death() {
+        isDeath = true;
+    }
+
+    public boolean isDeath() {
+        return isDeath;
+    }
+
     public String toBoardString() {
         if(isSelected){
             return String.format("%s%c%s", FontColor.YELLOW.getFontColor(), shape, FontColor.RESET.getFontColor());
@@ -91,5 +101,5 @@ public abstract class Piece {
         return false;
     }
 
-    abstract public List<Pos> getCanMovePosList();
+    abstract public ArrayList<Pos> getCanMovePosList();
 }

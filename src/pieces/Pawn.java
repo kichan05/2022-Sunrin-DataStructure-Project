@@ -10,7 +10,7 @@ public class Pawn extends Piece {
     }
 
     @Override
-    public List<Pos> getCanMovePosList() {
+    public ArrayList<Pos> getCanMovePosList() {
         ArrayList<Pos> posList = new ArrayList<>();
 
         Pos tempPos = new Pos(getPosX(), getPosY() + ((getTeam() == Team.BLUE) ? -1 : 1));

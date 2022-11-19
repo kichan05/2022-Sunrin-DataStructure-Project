@@ -1,5 +1,6 @@
 package pieces;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +10,7 @@ public class Bishop extends Piece {
     }
 
     @Override
-    public List<Pos> getCanMovePosList() {
+    public ArrayList<Pos> getCanMovePosList() {
         ArrayList<Pos> posList = new ArrayList<Pos>();
         int x, y;
         Pos pos;

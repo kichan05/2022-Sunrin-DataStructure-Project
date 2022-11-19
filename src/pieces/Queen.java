@@ -1,5 +1,6 @@
 package pieces;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Queen extends Piece {
@@ -13,7 +14,7 @@ public class Queen extends Piece {
     }
 
     @Override
-    public List<Pos> getCanMovePosList() {
+    public ArrayList<Pos> getCanMovePosList() {
         return null;
     }
 

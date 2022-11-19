@@ -5,6 +5,8 @@ import pieces.Team;
 import util.ColorCode;
 import util.FontColor;
 
+import java.util.ArrayList;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -47,6 +49,9 @@ public class Main {
             }
 
             selectPiece.select();
+            ArrayList<Pos> canMoveList = selectPiece.getCanMovePosList();
+            Board.board.setCanMovePosList(canMoveList);
+
             Board.board.printBoard();
 
 //            for (Pos i : selectPiece.getCanMovePosList()){
@@ -71,6 +76,11 @@ public class Main {
             }
             System.out.printf("%s입력한 좌표> %d, %d%s\n", FontColor.PURPLE.getFontColor(), inputPos.getX(), inputPos.getY(), FontColor.RESET.getFontColor());
 
+            Piece targetPiece = Board.board.getPieceByPos(inputPos);
+            if(targetPiece != null && targetPiece.getTeam() != currentPlayer.getTeam()){
+                targetPiece.death();
+                System.out.printf("%s죽은 기물> %s%s\n", FontColor.PURPLE.getFontColor(), Board.board.getPieceByPos(inputPos), FontColor.RESET.getFontColor());
+            }
 
             selectPiece.unSelect();
             selectPiece.setPos(inputPos);

@@ -6,7 +6,20 @@ public class Board {
     public static Board board = new Board();
 
     private ArrayList<Piece> pieces = new ArrayList<>();
+    private ArrayList<Pos> canMovePosList = new ArrayList<>();
     private String[][] playground = new String[8][8];
+
+    public void setCanMovePosList(ArrayList<Pos> posList) {
+        canMovePosList = posList;
+    }
+
+    public void addCanMoveList(ArrayList<Pos> posList) {
+        canMovePosList.addAll(posList);
+    }
+
+    public void clearCanMoveList() {
+        canMovePosList.clear();
+    }
 
     public void printBoard() {
         for (int i = 0; i < 8; i++) {
@@ -16,6 +29,9 @@ public class Board {
         }
 
         for (Piece piece : pieces) {
+            if(piece.isDeath())
+                continue;
+
             int pieceX = piece.getPosX();
             int pieceY = piece.getPosY();
 
@@ -65,7 +81,7 @@ public class Board {
      * 있으면 해당 말 객체를 반환, 없으면 null 반환 */
     public Piece getPieceByPos(Pos pos){
         for(Piece i : pieces) {
-            if(i.getPos().equals(pos)){
+            if(i.getPos().equals(pos) && !i.isDeath()){
                 return i;
             }
         }

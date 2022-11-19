@@ -9,7 +9,7 @@ public class King extends Piece {
     }
 
     @Override
-    public List<Pos> getCanMovePosList() {
+    public ArrayList<Pos> getCanMovePosList() {
         ArrayList<Pos> posList = new ArrayList();
 
         for (int y = Math.max(0, getPosY() - 1); y <= Math.min(7, getPosY() + 1); y++) {

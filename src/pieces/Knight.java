@@ -9,7 +9,7 @@ public class Knight extends Piece {
     }
 
     @Override
-    public List<Pos> getCanMovePosList() {
+    public ArrayList<Pos> getCanMovePosList() {
         ArrayList<Pos> posList = new ArrayList();
 
         Pos pos;

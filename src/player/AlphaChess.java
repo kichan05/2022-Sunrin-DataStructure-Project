@@ -12,11 +12,11 @@ public class AlphaChess extends Player {
 
     @Override
     public Piece selectPiece() {
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            return selectPiece();
-        }
+//        try {
+//            Thread.sleep(1000);
+//        } catch (InterruptedException e) {
+//            return selectPiece();
+//        }
 
         while (true) {
             // 랜덤으로 좌표 선택
@@ -36,11 +36,11 @@ public class AlphaChess extends Player {
 
     @Override
     public Pos selectMovePos(Piece selectPiece) {
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            return selectMovePos(selectPiece);
-        }
+//        try {
+//            Thread.sleep(1000);
+//        } catch (InterruptedException e) {
+//            return selectMovePos(selectPiece);
+//        }
 
         while (true) {
             // 랜덤으로 좌표 선택

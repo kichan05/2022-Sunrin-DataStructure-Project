@@ -40,8 +40,8 @@ public class Board {
 
         // 선택한 말 움직일수 있는 위치 표시
         for (Pos pos : canMovePosList) {
-//            playground[pos.getX()][pos.getY()] = Color.YELLOW.getFontColor() + "★" + Color.RESET.getFontColor() ;
-            playground[pos.getX()][pos.getY()] = Color.YELLOW.getFontColor() + "○" + Color.RESET.getFontColor() ;
+            playground[pos.getX()][pos.getY()] = Color.YELLOW.getFontColor() + "★" + Color.RESET.getFontColor() ;
+//            playground[pos.getX()][pos.getY()] = Color.YELLOW.getFontColor() + "○" + Color.RESET.getFontColor() ;
         }
 
         // 기물들 표시
@@ -83,7 +83,7 @@ public class Board {
 
         pieces.add(new Rook(0, 7, Team.BLUE));
         pieces.add(new Knight(1, 7, Team.BLUE));
-        pieces.add(new Bishop(4, 4, Team.BLUE));
+        pieces.add(new Bishop(2, 7, Team.BLUE));
         pieces.add(new Queen(3, 7, Team.BLUE));
         pieces.add(new King(4, 7, Team.BLUE));
         pieces.add(new Bishop(5, 7, Team.BLUE));

@@ -6,7 +6,10 @@ import player.AlphaChess;
 import player.Player;
 import util.Color;
 
+import java.util.Scanner;
+
 public class Main {
+    private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         boolean gameState = true;
@@ -25,6 +28,7 @@ public class Main {
             Board.board.setCanMovePosList(selectedPiece.getCanMovePosList());
             Board.board.printBoard();
             System.out.printf("%s선택한 기물> %s%s\n", Color.PURPLE.getFontColor(), selectedPiece, Color.RESET.getFontColor());
+            nextEnter();
 
             Pos selectPos = currentPlayer.selectMovePos(selectedPiece);
             Piece targetPiece = Board.board.getPieceByPos(selectPos);
@@ -37,9 +41,15 @@ public class Main {
             selectedPiece.unSelect();
             selectedPiece.setPos(selectPos);
             Board.board.printBoard();
+            nextEnter();
 
             turnCount++;
             //행마법 테스트 때문에 잠깐 주석처리함
         }
+    }
+
+    private static void nextEnter() {
+        System.out.printf("%s다음 (ENTER를 눌러주세요)> %s", Color.YELLOW.getFontColor(), Color.RESET.getFontColor());
+        scanner.nextLine();
     }
 }

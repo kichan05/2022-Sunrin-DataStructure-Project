@@ -14,9 +14,8 @@ public class AlphaChess extends Player {
     public Piece selectPiece() {
         while (true) {
             // 랜덤으로 좌표 선택
-            int x = (int)(Math.random() * 10000) % 8;
-            int y = (int)(Math.random() * 10000) % 8;
-            Piece randomSelectPiece = Board.board.getPieceByPos(new Pos(x, y));
+            Pos randomPos = Pos.getRandomPos();
+            Piece randomSelectPiece = Board.board.getPieceByPos(randomPos);
 
             // 해당 좌표의 기물이 선택히 가능하면 반환s
             if (randomSelectPiece != null
@@ -32,9 +31,7 @@ public class AlphaChess extends Player {
     public Pos selectMovePos(Piece selectPiece) {
         while (true) {
             // 랜덤으로 좌표 선택
-            int x = (int)(Math.random() * 10000) % 8;
-            int y = (int)(Math.random() * 10000) % 8;
-            Pos randomPos = new Pos(x, y);
+            Pos randomPos = Pos.getRandomPos();
 
             // 해당 좌표로 이동이 가능하면 반환
             if (selectPiece.canMove(randomPos)) {

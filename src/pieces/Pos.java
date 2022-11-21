@@ -27,14 +27,16 @@ public class Pos {
         this.y = y;
     }
 
-    public void setPos(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
-
     public void setPos(Pos pos) {
         this.x = pos.getX();
         this.y = pos.getY();
+    }
+
+    public static Pos getRandomPos() {
+        int x = (int)(Math.random() * 10000) % 8;
+        int y = (int)(Math.random() * 10000) % 8;
+
+        return new Pos(x, y);
     }
 
     public boolean inBoard() {

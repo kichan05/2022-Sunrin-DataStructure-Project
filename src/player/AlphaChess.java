@@ -12,6 +12,11 @@ public class AlphaChess extends Player {
 
     @Override
     public Piece selectPiece() {
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         while (true) {
             // 랜덤으로 좌표 선택
             Pos randomPos = Pos.getRandomPos();
@@ -29,6 +34,11 @@ public class AlphaChess extends Player {
 
     @Override
     public Pos selectMovePos(Piece selectPiece) {
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         while (true) {
             // 랜덤으로 좌표 선택
             Pos randomPos = Pos.getRandomPos();

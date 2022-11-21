@@ -84,7 +84,7 @@ public class Board {
         pieces.add(new Rook(0, 7, Team.BLUE));
         pieces.add(new Knight(1, 7, Team.BLUE));
         pieces.add(new Bishop(2, 7, Team.BLUE));
-        pieces.add(new Queen(4, 4, Team.BLUE));
+        pieces.add(new Queen(3, 7, Team.BLUE));
         pieces.add(new King(4, 7, Team.BLUE));
         pieces.add(new Bishop(5, 7, Team.BLUE));
         pieces.add(new Knight(6, 7, Team.BLUE));

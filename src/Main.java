@@ -52,7 +52,9 @@ public class Main {
             Board.board.setCanMovePosList(selectedPiece.getCanMovePosList());
             // 기물이 움직일 수 있는 위치 저장
 
+
             Board.board.printBoard();
+
             System.out.printf("%s선택한 기물> %s%s\n", Color.PURPLE.getFontColor(), selectedPiece, Color.RESET.getFontColor());
 
             if(currentPlayer instanceof AlphaChess) {
@@ -69,6 +71,7 @@ public class Main {
             selectedPiece.setPos(selectPos); //기물 움직이기
 
             Board.board.printBoard();
+
             if(targetPiece != null){
                 System.out.printf("%s죽은 기물> %s%s\n", Color.PURPLE.getFontColor(), targetPiece, Color.RESET.getFontColor());
             }
@@ -92,7 +95,7 @@ public class Main {
     }
 
     private static void nextEnter() {
-        System.out.printf("%s다음 (ENTER를 눌러주세요)> %s", Color.YELLOW.getFontColor(), Color.RESET.getFontColor());
-        scanner.nextLine();
+//        System.out.printf("%s다음 (ENTER를 눌러주세요)> %s", Color.YELLOW.getFontColor(), Color.RESET.getFontColor());
+//        scanner.nextLine();
     }
 }

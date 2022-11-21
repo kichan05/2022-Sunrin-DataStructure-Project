@@ -13,6 +13,13 @@ public class Pawn extends Piece {
     public ArrayList<Pos> getCanMovePosList() {
         ArrayList<Pos> posList = new ArrayList<>();
 
+        if(getTeam() == Team.BLUE && getPosY() == 0) {
+            return posList;
+        }
+        if(getTeam() == Team.RED && getPosY() == 7) {
+            return posList;
+        }
+
         Pos tempPos = new Pos(getPosX(), getPosY() + ((getTeam() == Team.BLUE) ? -1 : 1));
         Piece posPiece = Board.board.getPieceByPos(tempPos);
         if(posPiece == null || posPiece.getTeam() != getTeam()){

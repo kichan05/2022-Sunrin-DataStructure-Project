@@ -26,7 +26,7 @@ public class Human extends Player {
             } else if (selectPiece.getTeam() != getTeam()) {
                 System.out.println("상대팀의 기물은 선택 할 수 없습니다.");
             } else if (!selectPiece.canMove()) {
-                System.out.println("해당 기물은 움직일수있는 위치가 없습니다.");
+                System.out.println("해당 기물은 움직일 수 있는 위치가 없습니다.");
             } else {
                 break;
             }

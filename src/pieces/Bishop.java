@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Bishop extends Piece {
     public Bishop(int x, int y, Team team) {
-        super(x, y, team, '♝');
+        super(x, y, team, '♝', 2);
     }
 
     @Override

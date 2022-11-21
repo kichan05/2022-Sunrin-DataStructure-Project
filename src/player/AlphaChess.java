@@ -17,7 +17,7 @@ public class AlphaChess extends Player {
             Pos randomPos = Pos.getRandomPos();
             Piece randomSelectPiece = Board.board.getPieceByPos(randomPos);
 
-            // 해당 좌표의 기물이 선택히 가능하면 반환s
+            // 해당 좌표의 기물이 선택히 가능하면 반환
             if (randomSelectPiece != null
                 && randomSelectPiece.getTeam() == getTeam()
                 && randomSelectPiece.canMove()

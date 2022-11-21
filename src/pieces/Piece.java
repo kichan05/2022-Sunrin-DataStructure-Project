@@ -8,22 +8,20 @@ import java.util.List;
 public abstract class Piece {
     private Pos pos;
     private final Team team;
-
     private final char shape;
-
-    private int moveCount;
-
+    private int moveCount = 0;
     private boolean isSelected = false;
     private boolean isDeath = false;
     private boolean isCheck = false;
+    private int level;
+    //기물의 레벨 : 폰 = 1, 나이트, 비숍, 룩 = 2, 퀸 = 3, 킹 = 4
 
-    Piece(int x, int y, Team team, char shapeWhite) {
+    Piece(int x, int y, Team team, char shapeWhite, int level) {
         this.pos = new Pos(x, y);
         this.team = team;
 
         this.shape = shapeWhite;
-
-        this.moveCount = 0;
+        this.level = level;
     }
 
     public Pos getPos() {

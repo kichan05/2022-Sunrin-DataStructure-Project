@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Rook extends Piece {
     public Rook(int x, int y, Team team) {
-        super(x, y, team, '♜');
+        super(x, y, team, '♜', 2);
     }
 
     /**

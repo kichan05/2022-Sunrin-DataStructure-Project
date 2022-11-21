@@ -8,11 +8,6 @@ public class Queen extends Piece {
     }
 
     @Override
-    public boolean canMove(Pos pos) {
-        return false;
-    }
-
-    @Override
     public ArrayList<Pos> getCanMovePosList() {
         ArrayList<Pos> posList = new ArrayList<>();
         int x, y;

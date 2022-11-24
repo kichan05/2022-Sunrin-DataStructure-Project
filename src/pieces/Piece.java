@@ -129,6 +129,11 @@ public abstract class Piece {
         return false;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        return team.equals(((Piece) obj).getTeam()) && shape == ((Piece) obj).shape;
+    }
+
     /**
      * 기물이 움직일 수 있는 위치 리스트 반환
      */

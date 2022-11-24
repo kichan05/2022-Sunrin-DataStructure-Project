@@ -1,6 +1,7 @@
 package pieces;
 
 import java.util.ArrayList;
+import java.util.stream.StreamSupport;
 
 public class King extends Piece {
     public King(int x, int y, Team team) {
@@ -20,6 +21,20 @@ public class King extends Piece {
                 }
             }
         }
+
+        ArrayList<Piece> enemyPieceList = Board.board.getTeamPieceList(getTeam() == Team.BLUE ? Team.RED : Team.BLUE);
+        for (Piece i : enemyPieceList) {
+            if (i instanceof King)
+                continue;
+
+            ArrayList<Pos> pieceCanMoveList = i.getCanMovePosList();
+            for (Pos j : pieceCanMoveList) {
+                if (posList.contains(j)){
+                    posList.remove(j);
+                }
+            }
+        }
+
 
         return posList;
     }

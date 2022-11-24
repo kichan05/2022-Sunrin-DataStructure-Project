@@ -95,7 +95,7 @@ public class Main {
     }
 
     private static void nextEnter() {
-//        System.out.printf("%s다음 (ENTER를 눌러주세요)> %s", Color.YELLOW.getFontColor(), Color.RESET.getFontColor());
-//        scanner.nextLine();
+        System.out.printf("%s다음 (ENTER를 눌러주세요)> %s", Color.YELLOW.getFontColor(), Color.RESET.getFontColor());
+        scanner.nextLine();
     }
 }

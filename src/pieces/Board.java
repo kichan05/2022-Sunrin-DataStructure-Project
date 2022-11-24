@@ -41,7 +41,6 @@ public class Board {
         // 선택한 말 움직일수 있는 위치 표시
         for (Pos pos : canMovePosList) {
             playground[pos.getX()][pos.getY()] = Color.YELLOW.getFontColor() + "★" + Color.RESET.getFontColor() ;
-//            playground[pos.getX()][pos.getY()] = Color.YELLOW.getFontColor() + "○" + Color.RESET.getFontColor() ;
         }
 
         // 기물들 표시
@@ -106,6 +105,18 @@ public class Board {
         }
 
         return null;
+    }
+
+    public ArrayList<Piece> getTeamPieceList(Team team) {
+        ArrayList<Piece> pieceList = new ArrayList<>();
+
+        for (Piece i : pieces){
+            if (i.getTeam() == team && !i.isDeath()){
+                pieceList.add(i);
+            }
+        }
+
+        return pieceList;
     }
 
     public boolean isPosEmpty(Pos pos){

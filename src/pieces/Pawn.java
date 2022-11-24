@@ -2,6 +2,7 @@ package pieces;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Pawn extends Piece {
 
@@ -30,7 +31,6 @@ public class Pawn extends Piece {
                 posList.add(tempPos);
             }
         }
-
 
         return posList;
     }

@@ -1,6 +1,7 @@
 package pieces;
 
 import util.Color;
+import util.PieceType;
 
 import java.util.ArrayList;
 
@@ -90,9 +91,16 @@ public class Board {
         pieces.add(new Rook(7, 7, Team.BLUE));
 //        for (int i = 0; i < 8; i++) pieces.add(new Pawn(i, 6, Team.BLUE));
 
-//        pieces.add(new Queen(4, 4, Team.BLUE));
 
         printBoard();
+    }
+
+    public void testBoard(){
+        clearBoard();
+        pieces.add(new Pawn(2, 0, Team.RED));
+        pieces.add(new Pawn(2, 1, Team.BLUE));
+        pieces.add(new King(4, 0, Team.RED));
+        pieces.add(new King(4, 7, Team.BLUE));
     }
 
     /** 좌표를 입력받고 보드판에서 해당 위치에 말이 있는지 확인
@@ -117,6 +125,17 @@ public class Board {
         }
 
         return pieceList;
+    }
+
+    public void createPiece(Pos pos, PieceType pieceType, Team team){
+        switch (pieceType){
+            case PAWN -> pieces.add(new Pawn(pos.getX(), pos.getY(), team));
+            case BISHOP -> pieces.add(new Bishop(pos.getX(), pos.getY(), team));
+            case ROOK -> pieces.add(new Rook(pos.getX(), pos.getY(), team));
+            case KNIGHT -> pieces.add(new Knight(pos.getX(), pos.getY(), team));
+            case QUEEN -> pieces.add(new Queen(pos.getX(), pos.getY(), team));
+            case KING -> pieces.add(new King(pos.getX(), pos.getY(), team));
+        }
     }
 
     public King getKing(Team team){

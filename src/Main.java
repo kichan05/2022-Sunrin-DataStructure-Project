@@ -13,6 +13,8 @@ public class Main {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
+        boolean isRedCheck = false;
+        boolean isBlueCheck = false;
         Player player1 = null, player2 = null;
 
         int selectMenu = showMenu();
@@ -38,7 +40,6 @@ public class Main {
         }
         Player[] players = {player1, player2};
 
-
         Board.board.initGameBoard();
 
         int turnCount = 0;
@@ -46,12 +47,18 @@ public class Main {
         while (gameState) {
             Player currentPlayer = players[turnCount % 2];
 
+            if(isRedCheck){
+                System.out.println(Color.RED.getFontColor() + Team.RED + "팀 체크" + Color.RESET.getFontColor());
+            }
+            if(isBlueCheck){
+                System.out.println(Color.BLUE.getFontColor() +  Team.BLUE + "팀 체크" + Color.RESET.getFontColor());
+            }
+
             Piece selectedPiece = currentPlayer.selectPiece();
 
             selectedPiece.select(); //선택된 기물을 선택처리
             Board.board.setCanMovePosList(selectedPiece.getCanMovePosList());
             // 기물이 움직일 수 있는 위치 저장
-
 
             Board.board.printBoard();
 
@@ -79,6 +86,9 @@ public class Main {
             if(currentPlayer instanceof AlphaChess && players[(turnCount + 1) % 2] instanceof AlphaChess) {
                 nextEnter();
             }
+
+            isRedCheck = Board.board.isCheck(Team.RED);
+            isBlueCheck = Board.board.isCheck(Team.BLUE);
 
             turnCount++;
         }

@@ -23,11 +23,26 @@ public class Pawn extends Piece {
 
         Pos tempPos = new Pos(getPosX(), getPosY() + ((getTeam() == Team.BLUE) ? -1 : 1));
         Piece posPiece = Board.board.getPieceByPos(tempPos);
-        if(posPiece == null || posPiece.getTeam() != getTeam()){
+        if(posPiece == null){
             posList.add(tempPos);
 
             tempPos = new Pos(getPosX(), getPosY() + ((getTeam() == Team.BLUE) ? -2 : 2));
             if (tempPos.inBoard() && getMoveCount() == 0 && Board.board.isPosEmpty(tempPos)) {
+                posList.add(tempPos);
+            }
+
+
+        }
+        else {
+            tempPos = new Pos(getPosX()+1, getPosY() + ((getTeam() == Team.BLUE) ? -1 : 1));
+            posPiece = Board.board.getPieceByPos(tempPos);
+            if(tempPos.inBoard() && posPiece.getTeam() != getTeam()){
+                posList.add(tempPos);
+            }
+
+            tempPos = new Pos(getPosX()-1, getPosY() + ((getTeam() == Team.BLUE) ? -1 : 1));
+            posPiece = Board.board.getPieceByPos(tempPos);
+            if(tempPos.inBoard() && posPiece.getTeam() != getTeam()){
                 posList.add(tempPos);
             }
         }

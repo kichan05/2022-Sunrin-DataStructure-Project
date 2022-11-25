@@ -1,5 +1,6 @@
 package chess.player;
 
+import chess.ChessUi;
 import chess.pieces.Piece;
 import chess.util.Pos;
 import chess.util.Team;
@@ -27,7 +28,7 @@ abstract public class Player {
 
     public Pos inputPos(String message) {
         int x, y;
-        System.out.printf("%s▶ %s팀) %s : %s", team.getTeamColor(), team, message, Color.RESET.getFontColor());
+        ChessUi.printTeamMessage(getTeam(), message);
         x = scanner.nextInt();
         y = scanner.nextInt();
 

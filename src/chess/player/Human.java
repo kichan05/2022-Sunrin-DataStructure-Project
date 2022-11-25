@@ -16,7 +16,7 @@ public class Human extends Player {
         Piece selectPiece;
         Pos inputPos;
         while (true) {
-            inputPos = inputPos("이동할 기물을 선택하세요.");
+            inputPos = inputPos("이동할 기물을 선택하세요 : ");
             selectPiece = Board.board.getPieceByPos(inputPos);
 
             if (!inputPos.inBoard()) {
@@ -41,7 +41,7 @@ public class Human extends Player {
     public Pos selectMovePos(Piece selectPiece) {
         /* 선택한 기물 이동 */
         while (true) {
-            Pos inputPos = inputPos("기물을 이동할 위치를 선택하세요.");
+            Pos inputPos = inputPos("기물을 이동할 위치를 선택하세요 : ");
 
 
             if (!inputPos.inBoard()) {

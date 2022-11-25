@@ -101,4 +101,8 @@ public class ChessUi {
     public static void printErrorMessage(String message) {
         System.out.printf("%s▶ %s%s\n", Color.RED.getFontColor(), message, Color.RESET.getFontColor());
     }
+
+    public static void printTeamMessage(Team team, String message) {
+        System.out.printf("%s▶ %s팀) %s%s", team.getTeamColor(), team, message, Color.RESET.getFontColor());
+    }
 }

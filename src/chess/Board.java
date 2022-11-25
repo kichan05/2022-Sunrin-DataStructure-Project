@@ -116,7 +116,7 @@ public class Board {
         return null;
     }
 
-    public boolean isCheck(Team team) {
+        public boolean isCheck(Team team) {
         King king = getKing(team);
         ArrayList<Piece> enemyPieceList = Board.board.getTeamPieceList(team == Team.BLUE ? Team.YELLOW : Team.BLUE);
 

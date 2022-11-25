@@ -97,4 +97,8 @@ public class ChessUi {
                 message + "> " + piece + Color.RESET.getFontColor()
         );
     }
+
+    public static void printErrorMessage(String message) {
+        System.out.printf("%s▶ %s%s\n", Color.RED.getFontColor(), message, Color.RESET.getFontColor());
+    }
 }

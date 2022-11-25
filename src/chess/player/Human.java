@@ -1,6 +1,7 @@
 package chess.player;
 
 import chess.Board;
+import chess.ChessUi;
 import chess.pieces.Piece;
 import chess.util.Pos;
 import chess.util.Team;
@@ -18,20 +19,19 @@ public class Human extends Player {
             inputPos = inputPos("이동할 기물을 선택하세요.");
             selectPiece = Board.board.getPieceByPos(inputPos);
 
-
             if (!inputPos.inBoard()) {
-                System.out.println("범위를 벗어난 입력입니다.");
+                ChessUi.printErrorMessage("범위를 벗어난 입력입니다.");
             } else if (selectPiece == null) {
-                System.out.println("해당 위치에 기물이 없습니다.");
+                ChessUi.printErrorMessage("해당 위치에 기물이 없습니다.");
             } else if (selectPiece.getTeam() != getTeam()) {
-                System.out.println("상대팀의 기물은 선택 할 수 없습니다.");
+                ChessUi.printErrorMessage("상대팀의 기물은 선택 할 수 없습니다.");
             } else if (!selectPiece.canMove()) {
-                System.out.println("해당 기물은 움직일 수 있는 위치가 없습니다.");
+                ChessUi.printErrorMessage("해당 기물은 움직일 수 있는 위치가 없습니다.");
             } else {
                 break;
             }
 
-            System.out.println("기물을 다시 선택하세요.");
+            ChessUi.printErrorMessage("기물을 다시 선택하세요.");
         }
 
         return selectPiece;
@@ -45,14 +45,14 @@ public class Human extends Player {
 
 
             if (!inputPos.inBoard()) {
-                System.out.println("범위를 벗어난 입력입니다.");
+                ChessUi.printErrorMessage("범위를 벗어난 입력입니다.");
             } else if (!selectPiece.canMove(inputPos)) {
-                System.out.println("해당 위치로 이동할 수 없습니다.");
+                ChessUi.printErrorMessage("해당 위치로 이동할 수 없습니다.");
             } else {
                 return inputPos;
             }
 
-            System.out.println("움직일 위치를 다시 선택하세요.");
+            ChessUi.printErrorMessage("움직일 위치를 다시 선택하세요.");
         }
     }
 }

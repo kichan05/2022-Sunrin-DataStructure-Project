@@ -27,7 +27,7 @@ abstract public class Player {
 
     public Pos inputPos(String message) {
         int x, y;
-        System.out.printf("%s%s팀) %s : %s", team.getTeamColor(), team, message, Color.RESET.getFontColor());
+        System.out.printf("%s▶ %s팀) %s : %s", team.getTeamColor(), team, message, Color.RESET.getFontColor());
         x = scanner.nextInt();
         y = scanner.nextInt();
 

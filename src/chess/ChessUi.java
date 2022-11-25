@@ -2,6 +2,7 @@ package chess;
 
 import chess.pieces.Piece;
 import chess.util.Color;
+import chess.util.Pos;
 import chess.util.Team;
 
 import java.util.Scanner;
@@ -25,21 +26,56 @@ public class ChessUi {
     }
 
     public static void showBoard() {
+        String[][] playground = new String[8][8];
+
+        // 출력되는 문자열 배열 초기화
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                playground[j][i] = "ㅤ";
+            }
+        }
+
+        // 선택한 말 움직일수 있는 위치 표시
+        for (Pos pos : Board.board.getCanMovePosList()) {
+            playground[pos.getX()][pos.getY()] = Color.YELLOW.getFontColor() + "★" + Color.RESET.getFontColor() ;
+        }
+
+        // 기물들 표시
+        for (Piece piece : Board.board.getPieces()) {
+            if(piece.isDeath()) //이미 죽은 말이면 표시 안함
+                continue;
+
+            int pieceX = piece.getPosX();
+            int pieceY = piece.getPosY();
+
+            playground[pieceX][pieceY] = piece.toBoardString();
+        }
+
+        System.out.print("\n\n\n\n");
+
+        // 출력판 표시
+        System.out.println("     0ㅤㅤ1ㅤㅤ2ㅤㅤ3ㅤㅤ4ㅤㅤ5ㅤㅤ6ㅤㅤ7");
+        System.out.println("  ───────────────────────────────────────");
+        for (int i = 0; i < 8; i++) {
+            System.out.print(i+" │ ");
+            for (int j = 0; j < 8; j++) {
+                System.out.print(playground[j][i]+" │ ");
+            }
+            System.out.println("\n  ───────────────────────────────────────");
+        }
+
         if (Board.board.isCheck(Team.RED)) {
             System.out.println(Color.RED.getFontColor() + Team.RED + "팀 체크" + Color.RESET.getFontColor());
         }
         if (Board.board.isCheck(Team.BLUE)) {
             System.out.println(Color.BLUE.getFontColor() + Team.BLUE + "팀 체크" + Color.RESET.getFontColor());
         }
-
-        Board.board.printBoard();
     }
 
-    public static void printPiece(String message, Piece piece) {
+    public static void printPieceMessage(String message, Piece piece) {
         System.out.println(
                 Color.PURPLE.getFontColor() +
                 message + "> " + piece + Color.RESET.getFontColor()
         );
     }
-
 }

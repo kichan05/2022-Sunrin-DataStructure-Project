@@ -6,9 +6,6 @@ import chess.util.Team;
 import chess.player.AlphaChess;
 import chess.player.Human;
 import chess.player.Player;
-import chess.util.Color;
-
-import java.util.Scanner;
 
 public class Main {
 
@@ -41,6 +38,7 @@ public class Main {
         Player[] players = {player1, player2};
 
         Board.board.initGameBoard();
+        ChessUi.showBoard();
 
         int turnCount = 0;
         boolean gameState = true;
@@ -54,7 +52,7 @@ public class Main {
             // 기물이 움직일 수 있는 위치 저장
 
             ChessUi.showBoard();
-            ChessUi.printPiece("선택한 기물", selectedPiece);
+            ChessUi.printPieceMessage("선택한 기물", selectedPiece);
 
             if(currentPlayer instanceof AlphaChess) {
                 ChessUi.nextEnter();
@@ -74,7 +72,7 @@ public class Main {
             ChessUi.showBoard();
 
             if(targetPiece != null){
-                ChessUi.printPiece("죽은 기물", targetPiece);
+                ChessUi.printPieceMessage("죽은 기물", targetPiece);
             }
 
             if(currentPlayer instanceof AlphaChess && players[(turnCount + 1) % 2] instanceof AlphaChess) {

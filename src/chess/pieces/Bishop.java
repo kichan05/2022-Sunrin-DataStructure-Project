@@ -26,7 +26,7 @@ public class Bishop extends Piece {
                 break;
             posPiece = Board.board.getPieceByPos(pos);
             if(posPiece != null){
-                if(posPiece.getTeam() != getTeam())
+                if(posPiece.getTeam() != getTeam() && !(posPiece instanceof King))
                     posList.add(pos);
 
                 break;
@@ -43,7 +43,7 @@ public class Bishop extends Piece {
                 break;
             posPiece = Board.board.getPieceByPos(pos);
             if(posPiece != null){
-                if(posPiece.getTeam() != getTeam())
+                if(posPiece.getTeam() != getTeam() && !(posPiece instanceof King))
                     posList.add(pos);
 
                 break;
@@ -60,7 +60,7 @@ public class Bishop extends Piece {
                 break;
             posPiece = Board.board.getPieceByPos(pos);
             if(posPiece != null){
-                if(posPiece.getTeam() != getTeam())
+                if(posPiece.getTeam() != getTeam() && !(posPiece instanceof King))
                     posList.add(pos);
 
                 break;
@@ -77,7 +77,7 @@ public class Bishop extends Piece {
                 break;
             posPiece = Board.board.getPieceByPos(pos);
             if(posPiece != null){
-                if(posPiece.getTeam() != getTeam())
+                if(posPiece.getTeam() != getTeam() && !(posPiece instanceof King))
                     posList.add(pos);
 
                 break;

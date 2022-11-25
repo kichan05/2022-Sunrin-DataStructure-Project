@@ -27,7 +27,7 @@ public class Queen extends Piece {
                 break;
             posPiece = Board.board.getPieceByPos(pos);
             if(posPiece != null){
-                if(posPiece.getTeam() != getTeam())
+                if(posPiece.getTeam() != getTeam() && !(posPiece instanceof King))
                     posList.add(pos);
 
                 break;
@@ -45,7 +45,7 @@ public class Queen extends Piece {
                 break;
             posPiece = Board.board.getPieceByPos(pos);
             if(posPiece != null){
-                if(posPiece.getTeam() != getTeam())
+                if(posPiece.getTeam() != getTeam() && !(posPiece instanceof King))
                     posList.add(pos);
 
                 break;
@@ -63,7 +63,7 @@ public class Queen extends Piece {
                 break;
             posPiece = Board.board.getPieceByPos(pos);
             if(posPiece != null){
-                if(posPiece.getTeam() != getTeam())
+                if(posPiece.getTeam() != getTeam() && !(posPiece instanceof King))
                     posList.add(pos);
 
                 break;
@@ -81,7 +81,7 @@ public class Queen extends Piece {
                 break;
             posPiece = Board.board.getPieceByPos(pos);
             if(posPiece != null){
-                if(posPiece.getTeam() != getTeam())
+                if(posPiece.getTeam() != getTeam() && !(posPiece instanceof King))
                     posList.add(pos);
 
                 break;
@@ -96,7 +96,7 @@ public class Queen extends Piece {
 
             posPiece = Board.board.getPieceByPos(p);
             if(posPiece != null){
-                if(posPiece.getTeam() != getTeam())
+                if(posPiece.getTeam() != getTeam() && !(posPiece instanceof King))
                     posList.add(p);
 
                 break;
@@ -111,7 +111,7 @@ public class Queen extends Piece {
 
             posPiece = Board.board.getPieceByPos(p);
             if(posPiece != null){
-                if(posPiece.getTeam() != getTeam())
+                if(posPiece.getTeam() != getTeam() && !(posPiece instanceof King))
                     posList.add(p);
 
                 break;
@@ -126,7 +126,7 @@ public class Queen extends Piece {
 
             posPiece = Board.board.getPieceByPos(p);
             if(posPiece != null){
-                if(posPiece.getTeam() != getTeam())
+                if(posPiece.getTeam() != getTeam() && !(posPiece instanceof King))
                     posList.add(p);
 
                 break;
@@ -141,7 +141,7 @@ public class Queen extends Piece {
 
             posPiece = Board.board.getPieceByPos(p);
             if(posPiece != null){
-                if(posPiece.getTeam() != getTeam())
+                if(posPiece.getTeam() != getTeam() && !(posPiece instanceof King))
                     posList.add(p);
 
                 break;

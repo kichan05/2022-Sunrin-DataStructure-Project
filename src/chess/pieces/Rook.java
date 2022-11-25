@@ -23,7 +23,7 @@ public class Rook extends Piece {
 
             Piece posPiece = Board.board.getPieceByPos(p);
             if(posPiece != null){
-                if(posPiece.getTeam() != getTeam())
+                if(posPiece.getTeam() != getTeam() && !(posPiece instanceof King))
                     posList.add(p);
 
                 break;
@@ -37,7 +37,7 @@ public class Rook extends Piece {
 
             Piece posPiece = Board.board.getPieceByPos(p);
             if(posPiece != null){
-                if(posPiece.getTeam() != getTeam())
+                if(posPiece.getTeam() != getTeam() && !(posPiece instanceof King))
                     posList.add(p);
 
                 break;
@@ -51,7 +51,7 @@ public class Rook extends Piece {
 
             Piece posPiece = Board.board.getPieceByPos(p);
             if(posPiece != null){
-                if(posPiece.getTeam() != getTeam())
+                if(posPiece.getTeam() != getTeam() && !(posPiece instanceof King))
                     posList.add(p);
 
                 break;
@@ -65,7 +65,7 @@ public class Rook extends Piece {
 
             Piece posPiece = Board.board.getPieceByPos(p);
             if(posPiece != null){
-                if(posPiece.getTeam() != getTeam())
+                if(posPiece.getTeam() != getTeam() && !(posPiece instanceof King))
                     posList.add(p);
 
                 break;

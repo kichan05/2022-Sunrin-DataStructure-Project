@@ -26,6 +26,23 @@ public class ChessUi {
     }
 
     public static void showBoard() {
+        System.out.print("\n\n");
+        for(int i = 0; i < 50; i++)
+            System.out.print("─");
+        System.out.println();
+
+        printPieceCount();
+        printBoard();
+
+        if (Board.board.isCheck(Team.RED)) {
+            System.out.println(Color.RED.getFontColor() + Team.RED + "팀 체크" + Color.RESET.getFontColor());
+        }
+        if (Board.board.isCheck(Team.BLUE)) {
+            System.out.println(Color.BLUE.getFontColor() + Team.BLUE + "팀 체크" + Color.RESET.getFontColor());
+        }
+    }
+
+    private static void printBoard() {
         String[][] playground = new String[8][8];
 
         // 출력되는 문자열 배열 초기화
@@ -51,16 +68,6 @@ public class ChessUi {
             playground[pieceX][pieceY] = piece.toBoardString();
         }
 
-        System.out.print("\n\n");
-        for(int i = 0; i < 50; i++)
-            System.out.print("─");
-        System.out.println();
-
-        System.out.printf("%s남은 말 %s%d개 %s%d개%s\n\n",
-                Color.PURPLE.getFontColor(), Color.RED.getFontColor(),
-                Board.board.getTeamPieceList(Team.RED).size(), Color.BLUE.getFontColor(),
-                Board.board.getTeamPieceList(Team.BLUE).size(), Color.RESET.getFontColor()
-        );
 
         // 출력판 표시
         System.out.println("     0ㅤㅤ1ㅤㅤ2ㅤㅤ3ㅤㅤ4ㅤㅤ5ㅤㅤ6ㅤㅤ7");
@@ -72,13 +79,14 @@ public class ChessUi {
             }
             System.out.println("\n  ───────────────────────────────────────");
         }
+    }
 
-        if (Board.board.isCheck(Team.RED)) {
-            System.out.println(Color.RED.getFontColor() + Team.RED + "팀 체크" + Color.RESET.getFontColor());
-        }
-        if (Board.board.isCheck(Team.BLUE)) {
-            System.out.println(Color.BLUE.getFontColor() + Team.BLUE + "팀 체크" + Color.RESET.getFontColor());
-        }
+    private static void printPieceCount() {
+        System.out.printf("%s남은 말 %s%d개 %s%d개%s\n",
+                Color.PURPLE.getFontColor(), Color.RED.getFontColor(),
+                Board.board.getTeamPieceList(Team.RED).size(), Color.BLUE.getFontColor(),
+                Board.board.getTeamPieceList(Team.BLUE).size(), Color.RESET.getFontColor()
+        );
     }
 
     public static void printPieceMessage(String message, Piece piece) {

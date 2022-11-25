@@ -26,7 +26,7 @@ public class Pawn extends Piece {
 
         Pos tempPos = new Pos(getPosX(), getPosY() + ((getTeam() == Team.BLUE) ? -1 : 1));
         Piece posPiece = Board.board.getPieceByPos(tempPos);
-        if(posPiece == null){
+        if(posPiece == null){ //기본 앞으로 이동
             posList.add(tempPos);
 
             tempPos = new Pos(getPosX(), getPosY() + ((getTeam() == Team.BLUE) ? -2 : 2));
@@ -34,16 +34,16 @@ public class Pawn extends Piece {
                 posList.add(tempPos);
             }
         }
-        else {
-            tempPos = new Pos(getPosX()+1, getPosY() + ((getTeam() == Team.BLUE) ? -1 : 1));
+        else { // 앞이 막혀 있는 경우 대각선 부분을 봄
+            tempPos = new Pos(getPosX() + 1, getPosY() + ((getTeam() == Team.BLUE) ? -1 : 1));
             posPiece = Board.board.getPieceByPos(tempPos);
-            if(tempPos.inBoard() && posPiece != null && posPiece.getTeam() != getTeam()){
+            if(tempPos.inBoard() && posPiece != null && posPiece.getTeam() != getTeam() && !(posPiece instanceof King)){
                 posList.add(tempPos);
             }
 
             tempPos = new Pos(getPosX()-1, getPosY() + ((getTeam() == Team.BLUE) ? -1 : 1));
             posPiece = Board.board.getPieceByPos(tempPos);
-            if(tempPos.inBoard() && posPiece != null && posPiece.getTeam() != getTeam()){
+            if(tempPos.inBoard() && posPiece != null && posPiece.getTeam() != getTeam() && !(posPiece instanceof King)){
                 posList.add(tempPos);
             }
         }

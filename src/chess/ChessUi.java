@@ -51,7 +51,16 @@ public class ChessUi {
             playground[pieceX][pieceY] = piece.toBoardString();
         }
 
-        System.out.print("\n\n\n\n");
+        System.out.print("\n\n");
+        for(int i = 0; i < 50; i++)
+            System.out.print("─");
+        System.out.println();
+
+        System.out.printf("%s남은 말 %s%d개 %s%d개%s\n\n",
+                Color.PURPLE.getFontColor(), Color.RED.getFontColor(),
+                Board.board.getTeamPieceList(Team.RED).size(), Color.BLUE.getFontColor(),
+                Board.board.getTeamPieceList(Team.BLUE).size(), Color.RESET.getFontColor()
+        );
 
         // 출력판 표시
         System.out.println("     0ㅤㅤ1ㅤㅤ2ㅤㅤ3ㅤㅤ4ㅤㅤ5ㅤㅤ6ㅤㅤ7");

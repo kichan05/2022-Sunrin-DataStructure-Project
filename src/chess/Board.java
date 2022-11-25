@@ -27,6 +27,7 @@ public class Board {
             }
         }
     }
+
     public ArrayList<Pos> getCanMovePosList() {
         return canMovePosList;
     }

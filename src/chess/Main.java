@@ -64,7 +64,6 @@ public class Main {
                 targetPiece.death();
             }
 
-
             selectedPiece.unSelect(); // 선택한 기물 선택 해제
             Board.board.clearCanMoveList(); // 기물이 움직일 수 있는 위치 초기화
             selectedPiece.setPos(selectPos); //기물 움직이기

@@ -1,10 +1,12 @@
 package chess.pieces;
 
 import chess.Board;
+import chess.util.PieceType;
 import chess.util.Pos;
 import chess.util.Team;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Pawn extends Piece {
     public Pawn(int x, int y, Team team) {
@@ -47,5 +49,36 @@ public class Pawn extends Piece {
         }
 
         return posList;
+    }
+
+    @Override
+    public void setPos(Pos pos){
+        super.setPos(pos);
+
+        if(getTeam() == Team.BLUE && getPosY() == 0) {
+            promotion();
+        }
+        if(getTeam() == Team.RED && getPosY() == 7) {
+            promotion();
+        }
+    }
+
+    private void promotion(){
+        Scanner scanner = new Scanner(System.in);
+        int choosePiece;
+
+        System.out.println("1. 퀸  2. 룩  3. 비숍  4. 나이트");
+        System.out.print("승급할 기물을 선택해주세요. ");
+
+        death();
+
+        choosePiece = scanner.nextInt();
+        switch (choosePiece){
+            case 1 -> Board.board.createPiece(this.getPos(), PieceType.QUEEN, this.getTeam());
+            case 2 -> Board.board.createPiece(this.getPos(), PieceType.ROOK, this.getTeam());
+            case 3 -> Board.board.createPiece(this.getPos(), PieceType.BISHOP, this.getTeam());
+            case 4 -> Board.board.createPiece(this.getPos(), PieceType.KNIGHT, this.getTeam());
+        }
+
     }
 }

@@ -7,7 +7,6 @@ import chess.util.Team;
 import java.util.ArrayList;
 
 public class Pawn extends Piece {
-
     public Pawn(int x, int y, Team team) {
         super(x, y, team, '♙', 1);
     }
@@ -25,11 +24,24 @@ public class Pawn extends Piece {
 
         Pos tempPos = new Pos(getPosX(), getPosY() + ((getTeam() == Team.BLUE) ? -1 : 1));
         Piece posPiece = Board.board.getPieceByPos(tempPos);
-        if(posPiece == null || posPiece.getTeam() != getTeam()){
+        if(posPiece == null){
             posList.add(tempPos);
 
             tempPos = new Pos(getPosX(), getPosY() + ((getTeam() == Team.BLUE) ? -2 : 2));
             if (tempPos.inBoard() && getMoveCount() == 0 && Board.board.isPosEmpty(tempPos)) {
+                posList.add(tempPos);
+            }
+        }
+        else {
+            tempPos = new Pos(getPosX()+1, getPosY() + ((getTeam() == Team.BLUE) ? -1 : 1));
+            posPiece = Board.board.getPieceByPos(tempPos);
+            if(tempPos.inBoard() && posPiece != null && posPiece.getTeam() != getTeam()){
+                posList.add(tempPos);
+            }
+
+            tempPos = new Pos(getPosX()-1, getPosY() + ((getTeam() == Team.BLUE) ? -1 : 1));
+            posPiece = Board.board.getPieceByPos(tempPos);
+            if(tempPos.inBoard() && posPiece != null && posPiece.getTeam() != getTeam()){
                 posList.add(tempPos);
             }
         }

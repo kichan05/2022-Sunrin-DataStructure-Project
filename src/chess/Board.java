@@ -83,6 +83,7 @@ public class Board {
         pieces.add(new Knight(6, 0, Team.RED));
         pieces.add(new Rook(7, 0, Team.RED));
         for (int i = 0; i < 8; i++) pieces.add(new Pawn(i, 1, Team.RED));
+        pieces.add(new Pawn(3, 5, Team.RED));
 
         pieces.add(new Rook(0, 7, Team.BLUE));
         pieces.add(new Knight(1, 7, Team.BLUE));

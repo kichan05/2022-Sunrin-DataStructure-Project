@@ -42,15 +42,15 @@ public class Board {
 
 
     public void initGameBoard() {
-        pieces.add(new Rook(0, 0, Team.RED));
-        pieces.add(new Knight(1, 0, Team.RED));
-        pieces.add(new Bishop(2, 0, Team.RED));
-        pieces.add(new Queen(3, 0, Team.RED));
-        pieces.add(new King(4, 0, Team.RED));
-        pieces.add(new Bishop(5, 0, Team.RED));
-        pieces.add(new Knight(6, 0, Team.RED));
-        pieces.add(new Rook(7, 0, Team.RED));
-        for (int i = 0; i < 8; i++) pieces.add(new Pawn(i, 1, Team.RED));
+        pieces.add(new Rook(0, 0, Team.YELLOW));
+        pieces.add(new Knight(1, 0, Team.YELLOW));
+        pieces.add(new Bishop(2, 0, Team.YELLOW));
+        pieces.add(new Queen(3, 0, Team.YELLOW));
+        pieces.add(new King(4, 0, Team.YELLOW));
+        pieces.add(new Bishop(5, 0, Team.YELLOW));
+        pieces.add(new Knight(6, 0, Team.YELLOW));
+        pieces.add(new Rook(7, 0, Team.YELLOW));
+        for (int i = 0; i < 8; i++) pieces.add(new Pawn(i, 1, Team.YELLOW));
 
         pieces.add(new Rook(0, 7, Team.BLUE));
         pieces.add(new Knight(1, 7, Team.BLUE));
@@ -65,9 +65,9 @@ public class Board {
 
     public void testBoard(){
         clearBoard();
-        pieces.add(new Pawn(1, 0, Team.RED));
+        pieces.add(new Pawn(1, 0, Team.YELLOW));
         pieces.add(new Pawn(2, 1, Team.BLUE));
-        pieces.add(new King(4, 0, Team.RED));
+        pieces.add(new King(4, 0, Team.YELLOW));
         pieces.add(new King(4, 7, Team.BLUE));
     }
 
@@ -118,7 +118,7 @@ public class Board {
 
     public boolean isCheck(Team team) {
         King king = getKing(team);
-        ArrayList<Piece> enemyPieceList = Board.board.getTeamPieceList(team == Team.BLUE ? Team.RED : Team.BLUE);
+        ArrayList<Piece> enemyPieceList = Board.board.getTeamPieceList(team == Team.BLUE ? Team.YELLOW : Team.BLUE);
 
         for (Piece enemy : enemyPieceList) {
             if(enemy.canMove(king.getPos())){

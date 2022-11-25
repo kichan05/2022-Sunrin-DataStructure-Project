@@ -25,7 +25,7 @@ public class King extends Piece {
             }
         }
 
-        ArrayList<Piece> enemyPieceList = Board.board.getTeamPieceList(getTeam() == Team.BLUE ? Team.RED : Team.BLUE);
+        ArrayList<Piece> enemyPieceList = Board.board.getTeamPieceList(getTeam() == Team.BLUE ? Team.YELLOW : Team.BLUE);
         for (Piece i : enemyPieceList) {
             if (i instanceof King)
                 continue;

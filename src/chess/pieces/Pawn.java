@@ -20,7 +20,7 @@ public class Pawn extends Piece {
         if(getTeam() == Team.BLUE && getPosY() == 0) {
             return posList;
         }
-        if(getTeam() == Team.RED && getPosY() == 7) {
+        if(getTeam() == Team.YELLOW && getPosY() == 7) {
             return posList;
         }
 
@@ -58,7 +58,7 @@ public class Pawn extends Piece {
         if(getTeam() == Team.BLUE && getPosY() == 0) {
             promotion();
         }
-        if(getTeam() == Team.RED && getPosY() == 7) {
+        if(getTeam() == Team.YELLOW && getPosY() == 7) {
             promotion();
         }
     }

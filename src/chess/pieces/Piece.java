@@ -88,12 +88,12 @@ public abstract class Piece {
      * 화면에 출력하는 용도의 문자열 변환
      */
     public String toBoardString() {
-        if (isCheck) {
-            return String.format("%s%c%s", Color.YELLOW.getFontColor(), shape, Color.RESET.getFontColor());
+        if (isCheck) { // 자신이 죽을수도 있으면 빨간색으로 표시
+            return String.format("%s%c%s", Color.RED.getFontColor(), shape, Color.RESET.getFontColor());
         }
 
-        if (isSelected) { // 선택 됐으면 노란색으로
-            return String.format("%s%c%s", Color.YELLOW.getFontColor(), shape, Color.RESET.getFontColor());
+        if (isSelected) { // 선택 됐으면 보라색으로
+            return String.format("%s%c%s", Color.PURPLE.getFontColor(), shape, Color.RESET.getFontColor());
         }
 
         return toString(); //선택 안됐으면 기본 기물 색상으로

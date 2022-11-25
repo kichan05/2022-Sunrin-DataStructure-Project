@@ -18,15 +18,15 @@ public class Main {
         switch (selectMenu) {
             case 1:
                 player1 = new Human(Team.BLUE);
-                player2 = new Human(Team.RED);
+                player2 = new Human(Team.YELLOW);
                 break;
             case 2:
                 player1 = new Human(Team.BLUE);
-                player2 = new AlphaChess(Team.RED);
+                player2 = new AlphaChess(Team.YELLOW);
                 break;
             case 3:
                 player1 = new AlphaChess(Team.BLUE);
-                player2 = new AlphaChess(Team.RED);
+                player2 = new AlphaChess(Team.YELLOW);
                 break;
             case 4:
                 System.out.println("게임을 종료합니다.");
@@ -78,7 +78,7 @@ public class Main {
                 ChessUi.nextEnter();
             }
 
-            isRedCheck = Board.board.isCheck(Team.RED);
+            isRedCheck = Board.board.isCheck(Team.YELLOW);
             isBlueCheck = Board.board.isCheck(Team.BLUE);
 
             turnCount++;

@@ -34,7 +34,7 @@ public class ChessUi {
         printPieceCount();
         printBoard();
 
-        Team temp = Team.RED;
+        Team temp = Team.YELLOW;
         if (Board.board.isCheck(temp)) {
             System.out.println(temp.getTeamColor() + temp + "팀 체크" + Color.RESET.getFontColor());
         }
@@ -85,7 +85,7 @@ public class ChessUi {
     private static void printPieceCount() {
         System.out.printf("%s남은 말 %s%d개 %s%d개%s\n",
                 Color.PURPLE.getFontColor(),
-                Team.RED.getTeamColor(), Board.board.getTeamPieceList(Team.RED).size(),
+                Team.YELLOW.getTeamColor(), Board.board.getTeamPieceList(Team.YELLOW).size(),
                 Team.BLUE.getTeamColor(), Board.board.getTeamPieceList(Team.BLUE).size(),
                 Color.RESET.getFontColor()
         );

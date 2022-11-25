@@ -34,11 +34,13 @@ public class ChessUi {
         printPieceCount();
         printBoard();
 
-        if (Board.board.isCheck(Team.RED)) {
-            System.out.println(Color.RED.getFontColor() + Team.RED + "팀 체크" + Color.RESET.getFontColor());
+        Team temp = Team.RED;
+        if (Board.board.isCheck(temp)) {
+            System.out.println(temp.getTeamColor() + temp + "팀 체크" + Color.RESET.getFontColor());
         }
-        if (Board.board.isCheck(Team.BLUE)) {
-            System.out.println(Color.BLUE.getFontColor() + Team.BLUE + "팀 체크" + Color.RESET.getFontColor());
+        temp = Team.BLUE;
+        if (Board.board.isCheck(temp)) {
+            System.out.println(temp.getTeamColor() + temp + "팀 체크" + Color.RESET.getFontColor());
         }
     }
 
@@ -68,7 +70,6 @@ public class ChessUi {
             playground[pieceX][pieceY] = piece.toBoardString();
         }
 
-
         // 출력판 표시
         System.out.println("     0ㅤㅤ1ㅤㅤ2ㅤㅤ3ㅤㅤ4ㅤㅤ5ㅤㅤ6ㅤㅤ7");
         System.out.println("  ───────────────────────────────────────");
@@ -83,9 +84,10 @@ public class ChessUi {
 
     private static void printPieceCount() {
         System.out.printf("%s남은 말 %s%d개 %s%d개%s\n",
-                Color.PURPLE.getFontColor(), Color.RED.getFontColor(),
-                Board.board.getTeamPieceList(Team.RED).size(), Color.BLUE.getFontColor(),
-                Board.board.getTeamPieceList(Team.BLUE).size(), Color.RESET.getFontColor()
+                Color.PURPLE.getFontColor(),
+                Team.RED.getTeamColor(), Board.board.getTeamPieceList(Team.RED).size(),
+                Team.BLUE.getTeamColor(), Board.board.getTeamPieceList(Team.BLUE).size(),
+                Color.RESET.getFontColor()
         );
     }
 

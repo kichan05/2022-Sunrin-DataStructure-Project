@@ -104,7 +104,7 @@ public abstract class Piece {
      */
     @Override
     public String toString() {
-        String fontColor = getTeam() == Team.BLUE ? Color.BLUE.getFontColor() : Color.RED.getFontColor();
+        String fontColor = getTeam().getTeamColor();
 
         return String.format("%s%c%s", fontColor, shape, Color.RESET.getFontColor());
     }

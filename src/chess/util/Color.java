@@ -51,12 +51,12 @@ public enum Color {
         return BLACK.getBackgroundColor();
     }
 
-    public static String getTeamColor(Team team) {
-        if (team == Team.BLUE) {
-            return BLUE.getFontColor();
-        } else {
-            return RED.getFontColor();
-        }
-    }
+//    public static String getTeamColor(Team team) {
+//        if (team == Team.BLUE) {
+//            return BLUE.getFontColor();
+//        } else {
+//            return RED.getFontColor();
+//        }
+//    }
 }
 

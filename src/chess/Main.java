@@ -26,13 +26,13 @@ public class Main {
             ChessUi.showBoard();
             ChessUi.printPieceMessage("선택한 기물", selectedPiece);
 
-            if(currentPlayer instanceof AlphaChess) {
+            if (currentPlayer instanceof AlphaChess) {
                 ChessUi.nextEnter();
             }
 
             Pos selectPos = currentPlayer.selectMovePos(selectedPiece); //기물이 움직일 선택한 좌표
             Piece targetPiece = Board.board.getPieceByPos(selectPos); // 해당 위치에 있는 기물 가져오기
-            if(targetPiece != null){ //위치에 기물이 있으면 죽이기
+            if (targetPiece != null) { //위치에 기물이 있으면 죽이기
                 targetPiece.death();
             }
 
@@ -42,34 +42,52 @@ public class Main {
 
             ChessUi.showBoard();
 
-            if(targetPiece != null){
+            if (targetPiece != null) {
                 ChessUi.printPieceMessage("죽은 기물", targetPiece);
             }
-            if(currentPlayer instanceof AlphaChess && ChessState.getNextPlayer() instanceof AlphaChess) {
+            if (currentPlayer instanceof AlphaChess && ChessState.getNextPlayer() instanceof AlphaChess) {
                 ChessUi.nextEnter();
             }
 
             ChessState.checkTest(Team.BLUE);
             ChessState.checkTest(Team.YELLOW);
 
+            ChessState.checkMateTest(Team.BLUE);
+            ChessState.checkMateTest(Team.YELLOW);
+
+            endGameCheck();
             ChessState.nextTurn();
         }
     }
 
     private static void showMenu() {
-        while(true){
+        while (true) {
             int selectMenu = ChessUi.showMenu();
-            if(1 <= selectMenu && selectMenu <=3){
+            if (1 <= selectMenu && selectMenu <= 3) {
                 ChessState.initPlayers(selectMenu);
                 return;
-            }
-            else if(selectMenu == 4){
+            } else if (selectMenu == 4) {
                 System.out.println("잘가요.");
                 System.exit(0);
             }
 
             ChessUi.printErrorMessage("잘못된 입력입니다");
             ChessUi.printErrorMessage("다시 입력해주세요.\n\n");
+        }
+    }
+
+    private static void endGameCheck() {
+        boolean yellowCheckMade = ChessState.isCheckMate(Team.YELLOW);
+        boolean blueCheckMade = ChessState.isCheckMate(Team.BLUE);
+
+        if (yellowCheckMade == blueCheckMade) {
+            return;
+        }
+
+        if (yellowCheckMade) {
+            ChessState.gameEnd(Team.BLUE);
+        } else {
+            ChessState.gameEnd(Team.YELLOW);
         }
     }
 }

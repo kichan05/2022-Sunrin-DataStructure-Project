@@ -100,12 +100,12 @@ public class ChessUi {
 
         Team temp = Team.YELLOW;
         if(ChessState.isCheck(temp)){
-            System.out.printf("%s%s팀 체크%s", temp.getTeamColor(), temp, Color.RESET.getFontColor());
+            System.out.printf("%s%s팀 체크%s\n", temp.getTeamColor(), temp, Color.RESET.getFontColor());
         }
 
         temp = Team.BLUE;
         if(ChessState.isCheck(temp)){
-            System.out.printf("%s%s팀 체크%s", temp.getTeamColor(), temp, Color.RESET.getFontColor());
+            System.out.printf("%s%s팀 체크%s\n", temp.getTeamColor(), temp, Color.RESET.getFontColor());
         }
     }
 

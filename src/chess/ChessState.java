@@ -5,19 +5,15 @@ import chess.pieces.Piece;
 import chess.player.AlphaChess;
 import chess.player.Human;
 import chess.player.Player;
-import chess.util.Pos;
 import chess.util.Team;
 
 import java.util.ArrayList;
-import java.util.stream.StreamSupport;
 
 public class ChessState {
     private static boolean gameState = true;
-
     public static boolean getGameState() {
         return gameState;
     }
-
     public static void gameEnd(Team winner) {
         System.out.println(winner.getTeamColor() + winner + "팀이 승리하였습니다.");
         gameState = false;
@@ -25,26 +21,21 @@ public class ChessState {
 
 
     private static int turnCount = 0;
-
     public static int getTurn() {
         return turnCount;
     }
-
     public static void nextTurn() {
         turnCount++;
     }
 
 
     private static final Player[] players = new Player[2];
-
     public static Player getCurrentPlayer() {
         return players[turnCount % 2];
     }
-
     public static Player getNextPlayer() {
         return players[(ChessState.getTurn() + 1) % 2];
     }
-
     public static void initPlayers(int gameMode) {
         switch (gameMode) {
             case 1:
@@ -65,28 +56,27 @@ public class ChessState {
     }
 
 
-    private static boolean isRedCheck = false;
+    private static boolean isYellowCheck = false;
     private static boolean isBlueCheck = false;
-
     public static boolean isCheck(Team team) {
         if (team == Team.BLUE) return isBlueCheck;
-        else return isRedCheck;
+        else return isYellowCheck;
     }
-
     public static void checkTest(Team team) {
         King king = Board.board.getKing(team);
         ArrayList<Piece> enemyPieceList = Board.board.getTeamPieceList(team == Team.BLUE ? Team.YELLOW : Team.BLUE);
 
-
         for (Piece enemy : enemyPieceList) {
             if (enemy.canMove(king.getPos())) {
-
                 if (team == Team.BLUE) isBlueCheck = true;
-                else isRedCheck = true;
+                else isYellowCheck = true;
+
+                System.out.println("체크");
+                return;
             }
         }
         if (team == Team.BLUE) isBlueCheck = false;
-        else isRedCheck = false;
+        else isYellowCheck = false;
     }
 
     private static boolean isRedCheckMate = false;

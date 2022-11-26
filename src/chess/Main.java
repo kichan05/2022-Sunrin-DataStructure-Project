@@ -36,18 +36,9 @@ public class Main {
                 targetPiece.death();
             }
 
-            selectedPiece.unSelect(); // 선택한 기물 선택 해제
+            selectedPiece.unSelect(); // 선택한 기물 선택해제
             Board.board.clearCanMoveList(); // 기물이 움직일 수 있는 위치 초기화
             selectedPiece.setPos(selectPos); //기물 움직이기
-
-            ChessUi.showBoard();
-
-            if (targetPiece != null) {
-                ChessUi.printPieceMessage("죽은 기물", targetPiece);
-            }
-            if (currentPlayer instanceof AlphaChess && ChessState.getNextPlayer() instanceof AlphaChess) {
-                ChessUi.nextEnter();
-            }
 
             ChessState.checkTest(Team.BLUE);
             ChessState.checkTest(Team.YELLOW);
@@ -55,6 +46,16 @@ public class Main {
             ChessState.checkMateTest(Team.BLUE);
             ChessState.checkMateTest(Team.YELLOW);
 
+
+
+            ChessUi.showBoard();
+            if (targetPiece != null) {
+                ChessUi.printPieceMessage("죽은 기물", targetPiece);
+            }
+            if (currentPlayer instanceof AlphaChess && ChessState.getNextPlayer() instanceof AlphaChess) {
+                ChessUi.nextEnter();
+            }
+            
             endGameCheck();
             ChessState.nextTurn();
         }

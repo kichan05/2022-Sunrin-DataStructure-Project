@@ -44,7 +44,7 @@ public class AlphaChess extends Player {
             Pos randomPos = Pos.getRandomPos();
 
             // 해당 좌표로 이동이 가능하면 반환
-            if (selectPiece.canMove(randomPos)) {
+            if (selectPiece.canMove(randomPos) && !(Board.board.getPieceByPos(randomPos) instanceof chess.pieces.King)) {
                 return randomPos;
             }
         }

@@ -71,7 +71,6 @@ public class ChessState {
                 if (team == Team.BLUE) isBlueCheck = true;
                 else isYellowCheck = true;
 
-                System.out.println("체크");
                 return;
             }
         }

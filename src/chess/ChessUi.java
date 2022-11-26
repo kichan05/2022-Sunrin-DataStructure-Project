@@ -6,9 +6,21 @@ import chess.util.Pos;
 import chess.util.Team;
 
 import java.util.Scanner;
+import java.util.stream.StreamSupport;
 
 public class ChessUi {
     private static final Scanner scanner = new Scanner(System.in);
+
+
+    private static void printRight(String message) {
+        int LINE_LENGTH = 58;
+        int messageLength = message.length();
+
+        for (int i = 0; i < LINE_LENGTH - messageLength; i++) {
+            System.out.print("*");
+        }
+        System.out.println(message);
+    }
 
     public static void printErrorMessage(String message) {
         System.out.printf("%s▶ %s%s\n", Color.RED.getFontColor(), message, Color.RESET.getFontColor());
@@ -83,7 +95,7 @@ public class ChessUi {
     }
 
     private static void printPieceCount() {
-        System.out.printf("%s남은 말 %s%d개 %s%d개%s\n",
+        System.out.printf("%s                           남은 말 %s%02d개 %s%02d개%s\n",
                 Color.PURPLE.getFontColor(),
                 Team.YELLOW.getTeamColor(), Board.board.getTeamPieceList(Team.YELLOW).size(),
                 Team.BLUE.getTeamColor(), Board.board.getTeamPieceList(Team.BLUE).size(),
@@ -93,19 +105,20 @@ public class ChessUi {
 
     private static void printCheck() {
         if(!ChessState.isCheck(Team.YELLOW) && !ChessState.isCheck(Team.BLUE)){
-            System.out.println(Color.WHITE.getFontColor() + "체크 없음" + Color.RESET.getFontColor());
-
+            System.out.println(Color.WHITE.getFontColor() +
+                    "                                 체크 없음"
+            + Color.RESET.getFontColor());
             return;
         }
 
         Team temp = Team.YELLOW;
         if(ChessState.isCheck(temp)){
-            System.out.printf("%s%s팀 체크%s\n", temp.getTeamColor(), temp, Color.RESET.getFontColor());
+            System.out.println(temp.getTeamColor() + temp + "팀 체크" + Color.RESET.getFontColor());
         }
 
         temp = Team.BLUE;
         if(ChessState.isCheck(temp)){
-            System.out.printf("%s%s팀 체크%s\n", temp.getTeamColor(), temp, Color.RESET.getFontColor());
+            System.out.println(temp.getTeamColor() + temp + "팀 체크" + Color.RESET.getFontColor());
         }
     }
 

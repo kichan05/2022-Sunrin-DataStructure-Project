@@ -15,35 +15,13 @@ public class Main {
         Player player1 = null, player2 = null;
 
         int selectMenu = ChessUi.showMenu();
-        switch (selectMenu) {
-            case 1:
-                player1 = new Human(Team.BLUE);
-                player2 = new Human(Team.YELLOW);
-                break;
-            case 2:
-                player1 = new Human(Team.BLUE);
-                player2 = new AlphaChess(Team.YELLOW);
-                break;
-            case 3:
-                player1 = new AlphaChess(Team.BLUE);
-                player2 = new AlphaChess(Team.YELLOW);
-                break;
-            case 4:
-                System.out.println("게임을 종료합니다.");
-                return;
-            default:
-                System.out.println("잘못된 입력입니다.");
-                break;
-        }
-        Player[] players = {player1, player2};
+        ChessState.initPlayers(selectMenu);
 
         Board.board.initGameBoard();
         ChessUi.showBoard();
 
-//        int turnCount = 0;
-//        boolean gameState = true;
         while (ChessState.getGameState()) {
-            Player currentPlayer = players[ChessState.getTurn() % 2];
+            Player currentPlayer = ChessState.getCurrentPlayer();
 
             Piece selectedPiece = currentPlayer.selectPiece();
 
@@ -73,7 +51,7 @@ public class Main {
             if(targetPiece != null){
                 ChessUi.printPieceMessage("죽은 기물", targetPiece);
             }
-            if(currentPlayer instanceof AlphaChess && players[(ChessState.getTurn() + 1) % 2] instanceof AlphaChess) {
+            if(currentPlayer instanceof AlphaChess && ChessState.getNextPlayer() instanceof AlphaChess) {
                 ChessUi.nextEnter();
             }
 

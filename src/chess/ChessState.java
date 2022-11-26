@@ -2,6 +2,9 @@ package chess;
 
 import chess.pieces.King;
 import chess.pieces.Piece;
+import chess.player.AlphaChess;
+import chess.player.Human;
+import chess.player.Player;
 import chess.util.Team;
 
 import java.util.ArrayList;
@@ -48,6 +51,29 @@ public class ChessState {
         else isRedCheck = false;
     }
 
-//    private static final ArrayList<Player>[] players = new ArrayList[2];
-//
+    private static final Player[] players = new Player[2];
+    public static Player getCurrentPlayer() {
+        return players[turnCount % 2];
+    }
+    public static Player getNextPlayer() {
+        return players[(ChessState.getTurn() + 1) % 2];
+    }
+    public static void initPlayers(int gameMode){
+        switch (gameMode) {
+            case 1:
+                players[0] = new Human(Team.BLUE);
+                players[1] = new Human(Team.YELLOW);
+                break;
+            case 2:
+                players[0] = new Human(Team.BLUE);
+                players[1] = new AlphaChess(Team.YELLOW);
+                break;
+            case 3:
+                players[0] = new AlphaChess(Team.BLUE);
+                players[1] = new AlphaChess(Team.YELLOW);
+                break;
+            default:
+                throw new RuntimeException("Game Mode Error");
+        }
+    }
 }

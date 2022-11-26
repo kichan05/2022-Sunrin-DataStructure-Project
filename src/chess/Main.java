@@ -40,10 +40,10 @@ public class Main {
         Board.board.initGameBoard();
         ChessUi.showBoard();
 
-        int turnCount = 0;
-        boolean gameState = true;
-        while (gameState) {
-            Player currentPlayer = players[turnCount % 2];
+//        int turnCount = 0;
+//        boolean gameState = true;
+        while (ChessState.getGameState()) {
+            Player currentPlayer = players[ChessState.getTurn() % 2];
 
             Piece selectedPiece = currentPlayer.selectPiece();
 
@@ -73,15 +73,14 @@ public class Main {
             if(targetPiece != null){
                 ChessUi.printPieceMessage("죽은 기물", targetPiece);
             }
-
-            if(currentPlayer instanceof AlphaChess && players[(turnCount + 1) % 2] instanceof AlphaChess) {
+            if(currentPlayer instanceof AlphaChess && players[(ChessState.getTurn() + 1) % 2] instanceof AlphaChess) {
                 ChessUi.nextEnter();
             }
 
-            isRedCheck = Board.board.isCheck(Team.YELLOW);
-            isBlueCheck = Board.board.isCheck(Team.BLUE);
+            ChessState.checkTest(Team.BLUE);
+            ChessState.checkTest(Team.YELLOW);
 
-            turnCount++;
+            ChessState.nextTurn();
         }
     }
 }

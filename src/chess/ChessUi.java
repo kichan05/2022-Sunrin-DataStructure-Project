@@ -10,6 +10,14 @@ import java.util.Scanner;
 public class ChessUi {
     private static final Scanner scanner = new Scanner(System.in);
 
+    public static void printErrorMessage(String message) {
+        System.out.printf("%s▶ %s%s\n", Color.RED.getFontColor(), message, Color.RESET.getFontColor());
+    }
+
+    public static void printTeamMessage(Team team, String message) {
+        System.out.printf("%s▶ %s팀) %s%s", team.getTeamColor(), team, message, Color.RESET.getFontColor());
+    }
+
     public static int showMenu() {
         System.out.println("1. 인간 vs 인간");
         System.out.println("2. 인간 vs 인공지능");
@@ -32,16 +40,8 @@ public class ChessUi {
         System.out.println();
 
         printPieceCount();
+        printCheck();
         printBoard();
-
-        Team temp = Team.YELLOW;
-        if (Board.board.isCheck(temp)) {
-            System.out.println(temp.getTeamColor() + temp + "팀 체크" + Color.RESET.getFontColor());
-        }
-        temp = Team.BLUE;
-        if (Board.board.isCheck(temp)) {
-            System.out.println(temp.getTeamColor() + temp + "팀 체크" + Color.RESET.getFontColor());
-        }
     }
 
     private static void printBoard() {
@@ -91,18 +91,28 @@ public class ChessUi {
         );
     }
 
+    private static void printCheck() {
+        if(!ChessState.isCheck(Team.YELLOW) && !ChessState.isCheck(Team.BLUE)){
+            System.out.println(Color.WHITE.getFontColor() + "체크 없음" + Color.RESET.getFontColor());
+
+            return;
+        }
+
+        Team temp = Team.YELLOW;
+        if(ChessState.isCheck(temp)){
+            System.out.printf("%s%s팀 체크%s", temp.getTeamColor(), temp, Color.RESET.getFontColor());
+        }
+
+        temp = Team.BLUE;
+        if(ChessState.isCheck(temp)){
+            System.out.printf("%s%s팀 체크%s", temp.getTeamColor(), temp, Color.RESET.getFontColor());
+        }
+    }
+
     public static void printPieceMessage(String message, Piece piece) {
         System.out.println(
                 Color.PURPLE.getFontColor() +
                 message + "> " + piece + Color.RESET.getFontColor()
         );
-    }
-
-    public static void printErrorMessage(String message) {
-        System.out.printf("%s▶ %s%s\n", Color.RED.getFontColor(), message, Color.RESET.getFontColor());
-    }
-
-    public static void printTeamMessage(Team team, String message) {
-        System.out.printf("%s▶ %s팀) %s%s", team.getTeamColor(), team, message, Color.RESET.getFontColor());
     }
 }

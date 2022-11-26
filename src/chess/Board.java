@@ -22,7 +22,7 @@ public class Board {
 
         for (Pos pos : posList) {
             Piece piece = getPieceByPos(pos);
-            if(piece != null) {
+            if (piece != null) {
                 piece.check();
             }
         }
@@ -35,7 +35,7 @@ public class Board {
     public void clearCanMoveList() {
         canMovePosList.clear();
 
-        for(Piece piece : pieces){
+        for (Piece piece : pieces) {
             piece.unCheck();
         }
     }
@@ -52,7 +52,6 @@ public class Board {
         pieces.add(new Rook(7, 0, Team.YELLOW));
 //        for (int i = 0; i < 8; i++) pieces.add(new Pawn(i, 1, Team.YELLOW));
 
-        pieces.add(new Pawn(5, 1, Team.BLUE));
 
         pieces.add(new Rook(0, 7, Team.BLUE));
         pieces.add(new Knight(1, 7, Team.BLUE));
@@ -61,11 +60,11 @@ public class Board {
         pieces.add(new King(4, 7, Team.BLUE));
         pieces.add(new Bishop(5, 7, Team.BLUE));
         pieces.add(new Knight(6, 7, Team.BLUE));
-        pieces.add(new Rook(4, 1, Team.BLUE));
-        for (int i = 0; i < 8; i++) pieces.add(new Pawn(i, 6, Team.BLUE));
+        pieces.add(new Rook(7, 7, Team.BLUE));
+//        for (int i = 0; i < 8; i++) pieces.add(new Pawn(i, 6, Team.BLUE));
     }
 
-    public void testBoard(){
+    public void testBoard() {
         clearBoard();
         pieces.add(new Pawn(1, 0, Team.YELLOW));
         pieces.add(new Pawn(2, 1, Team.BLUE));
@@ -73,11 +72,13 @@ public class Board {
         pieces.add(new King(4, 7, Team.BLUE));
     }
 
-    /** 좌표를 입력받고 보드판에서 해당 위치에 말이 있는지 확인
-     * 있으면 해당 말 객체를 반환, 없으면 null 반환 */
-    public Piece getPieceByPos(Pos pos){
-        for(Piece i : pieces) {
-            if(i.getPos().equals(pos) && !i.isDeath()){
+    /**
+     * 좌표를 입력받고 보드판에서 해당 위치에 말이 있는지 확인
+     * 있으면 해당 말 객체를 반환, 없으면 null 반환
+     */
+    public Piece getPieceByPos(Pos pos) {
+        for (Piece i : pieces) {
+            if (i.getPos().equals(pos) && !i.isDeath()) {
                 return i;
             }
         }
@@ -88,8 +89,8 @@ public class Board {
     public ArrayList<Piece> getTeamPieceList(Team team) {
         ArrayList<Piece> pieceList = new ArrayList<>();
 
-        for (Piece i : pieces){
-            if (i.getTeam() == team && !i.isDeath()){
+        for (Piece i : pieces) {
+            if (i.getTeam() == team && !i.isDeath()) {
                 pieceList.add(i);
             }
         }
@@ -97,8 +98,8 @@ public class Board {
         return pieceList;
     }
 
-    public void createPiece(Pos pos, PieceType pieceType, Team team){
-        switch (pieceType){
+    public void createPiece(Pos pos, PieceType pieceType, Team team) {
+        switch (pieceType) {
             case PAWN -> pieces.add(new Pawn(pos.getX(), pos.getY(), team));
             case BISHOP -> pieces.add(new Bishop(pos.getX(), pos.getY(), team));
             case ROOK -> pieces.add(new Rook(pos.getX(), pos.getY(), team));
@@ -108,9 +109,9 @@ public class Board {
         }
     }
 
-    public King getKing(Team team){
+    public King getKing(Team team) {
         for (Piece i : pieces) {
-            if(i instanceof King && i.getTeam() == team){
+            if (i instanceof King && i.getTeam() == team) {
                 return (King) i;
             }
         }
@@ -118,20 +119,7 @@ public class Board {
         return null;
     }
 
-        public boolean isCheck(Team team) {
-        King king = getKing(team);
-        ArrayList<Piece> enemyPieceList = Board.board.getTeamPieceList(team == Team.BLUE ? Team.YELLOW : Team.BLUE);
-
-        for (Piece enemy : enemyPieceList) {
-            if(enemy.canMove(king.getPos())){
-                king.check();
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean isPosEmpty(Pos pos){
+    public boolean isPosEmpty(Pos pos) {
         return getPieceByPos(pos) == null;
     }
 

@@ -4,18 +4,12 @@ import chess.pieces.Piece;
 import chess.util.Pos;
 import chess.util.Team;
 import chess.player.AlphaChess;
-import chess.player.Human;
 import chess.player.Player;
 
 public class Main {
 
     public static void main(String[] args) {
-        boolean isRedCheck = false;
-        boolean isBlueCheck = false;
-        Player player1 = null, player2 = null;
-
-        int selectMenu = ChessUi.showMenu();
-        ChessState.initPlayers(selectMenu);
+        showMenu();
 
         Board.board.initGameBoard();
         ChessUi.showBoard();
@@ -59,6 +53,23 @@ public class Main {
             ChessState.checkTest(Team.YELLOW);
 
             ChessState.nextTurn();
+        }
+    }
+
+    private static void showMenu() {
+        while(true){
+            int selectMenu = ChessUi.showMenu();
+            if(1 <= selectMenu && selectMenu <=3){
+                ChessState.initPlayers(selectMenu);
+                return;
+            }
+            else if(selectMenu == 4){
+                System.out.println("잘가요.");
+                System.exit(0);
+            }
+
+            ChessUi.printErrorMessage("잘못된 입력입니다");
+            ChessUi.printErrorMessage("다시 입력해주세요.\n\n");
         }
     }
 }

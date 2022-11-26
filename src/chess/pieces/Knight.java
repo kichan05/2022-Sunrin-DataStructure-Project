@@ -20,42 +20,42 @@ public class Knight extends Piece {
 
         pos = new Pos(getPosX() - 1, getPosY() - 2);
         targetPiece = Board.board.getPieceByPos(pos);
-        if( pos.inBoard() && (targetPiece == null || targetPiece.getTeam() != getTeam() && !(targetPiece instanceof King)))
+        if( pos.inBoard() && (targetPiece == null || targetPiece.getTeam() != getTeam()))
             posList.add(pos);
 
         pos = new Pos(getPosX() - 1, getPosY() + 2);
         targetPiece = Board.board.getPieceByPos(pos);
-        if( pos.inBoard() && (targetPiece == null || targetPiece.getTeam() != getTeam() && !(targetPiece instanceof King)))
+        if( pos.inBoard() && (targetPiece == null || targetPiece.getTeam() != getTeam()))
             posList.add(pos);
 
         pos = new Pos(getPosX() - 2, getPosY() - 1);
         targetPiece = Board.board.getPieceByPos(pos);
-        if( pos.inBoard() && (targetPiece == null || targetPiece.getTeam() != getTeam() && !(targetPiece instanceof King)))
+        if( pos.inBoard() && (targetPiece == null || targetPiece.getTeam() != getTeam()))
             posList.add(pos);
 
         pos = new Pos(getPosX() - 2, getPosY() + 1);
         targetPiece = Board.board.getPieceByPos(pos);
-        if( pos.inBoard() && (targetPiece == null || targetPiece.getTeam() != getTeam() && !(targetPiece instanceof King)))
+        if( pos.inBoard() && (targetPiece == null || targetPiece.getTeam() != getTeam()))
             posList.add(pos);
 
         pos = new Pos(getPosX() + 1, getPosY() - 2);
         targetPiece = Board.board.getPieceByPos(pos);
-        if( pos.inBoard() && (targetPiece == null || targetPiece.getTeam() != getTeam() && !(targetPiece instanceof King)))
+        if( pos.inBoard() && (targetPiece == null || targetPiece.getTeam() != getTeam()))
             posList.add(pos);
 
         pos = new Pos(getPosX() + 1, getPosY() + 2);
         targetPiece = Board.board.getPieceByPos(pos);
-        if( pos.inBoard() && (targetPiece == null || targetPiece.getTeam() != getTeam() && !(targetPiece instanceof King)))
+        if( pos.inBoard() && (targetPiece == null || targetPiece.getTeam() != getTeam()))
             posList.add(pos);
 
         pos = new Pos(getPosX() + 2, getPosY() - 1);
         targetPiece = Board.board.getPieceByPos(pos);
-        if( pos.inBoard() && (targetPiece == null || targetPiece.getTeam() != getTeam() && !(targetPiece instanceof King)))
+        if( pos.inBoard() && (targetPiece == null || targetPiece.getTeam() != getTeam()))
             posList.add(pos);
 
         pos = new Pos(getPosX() + 2, getPosY() + 1);
         targetPiece = Board.board.getPieceByPos(pos);
-        if( pos.inBoard() && (targetPiece == null || targetPiece.getTeam() != getTeam() && !(targetPiece instanceof King)))
+        if( pos.inBoard() && (targetPiece == null || targetPiece.getTeam() != getTeam()))
             posList.add(pos);
 
         return posList;

@@ -37,13 +37,13 @@ public class Pawn extends Piece {
         else { // 앞이 막혀 있는 경우 대각선 부분을 봄
             tempPos = new Pos(getPosX() + 1, getPosY() + ((getTeam() == Team.BLUE) ? -1 : 1));
             posPiece = Board.board.getPieceByPos(tempPos);
-            if(tempPos.inBoard() && posPiece != null && posPiece.getTeam() != getTeam() && !(posPiece instanceof King)){
+            if(tempPos.inBoard() && posPiece != null && posPiece.getTeam() != getTeam()){
                 posList.add(tempPos);
             }
 
             tempPos = new Pos(getPosX()-1, getPosY() + ((getTeam() == Team.BLUE) ? -1 : 1));
             posPiece = Board.board.getPieceByPos(tempPos);
-            if(tempPos.inBoard() && posPiece != null && posPiece.getTeam() != getTeam() && !(posPiece instanceof King)){
+            if(tempPos.inBoard() && posPiece != null && posPiece.getTeam() != getTeam()){
                 posList.add(tempPos);
             }
         }

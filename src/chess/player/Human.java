@@ -56,7 +56,7 @@ public class Human extends Player {
             else if (targetPiece instanceof King) {
                 ChessUi.printErrorMessage("King은 잡을 수 없습니다.");
             }
-            else if(selectPiece instanceof King && !checkKingMove(inputPos)){
+            else if(selectPiece instanceof King && !((King) selectPiece).checkEnemyMove(inputPos)){
                 ChessUi.printErrorMessage("King이 이동하려는 위치에 상대 기물이 이동할 수 있습니다");
             }
             else {

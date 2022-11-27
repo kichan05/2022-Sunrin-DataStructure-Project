@@ -1,6 +1,7 @@
 package chess.pieces;
 
 import chess.Board;
+import chess.ChessUi;
 import chess.util.Pos;
 import chess.util.Team;
 
@@ -26,6 +27,18 @@ public class King extends Piece {
         }
 
         return posList;
+    }
+
+    public boolean checkEnemyMove(Pos targetPos) {
+        ArrayList<Piece> enemyPieceList = Board.board.getTeamPieceList(getTeam() == Team.BLUE ? Team.YELLOW : Team.BLUE);
+
+        for (Piece i : enemyPieceList) {
+            if (i.getCanMovePosList().contains(targetPos)) {
+                return false;
+            }
+        }
+
+        return false;
     }
 
 

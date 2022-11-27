@@ -31,17 +31,6 @@ abstract public class Player {
 
     /** 킹의 특수룰, 상대 기물이 이동 할 수 있는 위치는 이동 목한다.
      * 를 체크하는 함수 */
-    public boolean checkKingMove(Pos targetPos) {
-        ArrayList<Piece> enemyPieceList = Board.board.getTeamPieceList(getTeam() == Team.BLUE ? Team.YELLOW : Team.BLUE);
-
-        for (Piece i : enemyPieceList) {
-            if (i.getCanMovePosList().contains(targetPos)) {
-                return false;
-            }
-        }
-
-        return false;
-    }
 
     public Pos inputPos(String message) {
         int x, y;

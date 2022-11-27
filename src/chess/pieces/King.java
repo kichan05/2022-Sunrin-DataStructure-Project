@@ -19,24 +19,24 @@ public class King extends Piece {
             for (int x = Math.max(0, getPosX() - 1); x <= Math.min(7, getPosX() + 1); x++) {
                 Pos tempPos = new Pos(x, y);
                 Piece targetPiece = Board.board.getPieceByPos(tempPos);
-                if(targetPiece == null || (targetPiece.getTeam() != getTeam() && !(targetPiece instanceof King))){
+                if(targetPiece == null || (targetPiece.getTeam() != getTeam())){
                     posList.add(tempPos);
                 }
             }
         }
 
-        ArrayList<Piece> enemyPieceList = Board.board.getTeamPieceList(getTeam() == Team.BLUE ? Team.YELLOW : Team.BLUE);
-        for (Piece i : enemyPieceList) {
-            if (i instanceof King)
-                continue;
-
-            ArrayList<Pos> pieceCanMoveList = i.getCanMovePosList();
-            for (Pos j : pieceCanMoveList) {
-                if (posList.contains(j)){
-                    posList.remove(j);
-                }
-            }
-        }
+//        ArrayList<Piece> enemyPieceList = Board.board.getTeamPieceList(getTeam() == Team.BLUE ? Team.YELLOW : Team.BLUE);
+//        for (Piece i : enemyPieceList) {
+//            if (i instanceof King)
+//                continue;
+//
+//            ArrayList<Pos> pieceCanMoveList = i.getCanMovePosList();
+//            for (Pos j : pieceCanMoveList) {
+//                if (posList.contains(j)){
+//                    posList.remove(j);
+//                }
+//            }
+//        }
 
 
         return posList;

@@ -1,11 +1,14 @@
 package chess.player;
 
+import chess.Board;
 import chess.ChessUi;
+import chess.pieces.King;
 import chess.pieces.Piece;
 import chess.util.Pos;
 import chess.util.Team;
 import chess.util.Color;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 abstract public class Player {
@@ -25,6 +28,20 @@ abstract public class Player {
 
     /** 기물을 움직일 위치를 선택해서 반환합니다.  */
     abstract public Pos selectMovePos(Piece selectPiece);
+
+    /** 킹의 특수룰, 상대 기물이 이동 할 수 있는 위치는 이동 목한다.
+     * 를 체크하는 함수 */
+    public boolean checkKingMove(Pos targetPos) {
+        ArrayList<Piece> enemyPieceList = Board.board.getTeamPieceList(getTeam() == Team.BLUE ? Team.YELLOW : Team.BLUE);
+
+        for (Piece i : enemyPieceList) {
+            if (i.getCanMovePosList().contains(targetPos)) {
+                return false;
+            }
+        }
+
+        return false;
+    }
 
     public Pos inputPos(String message) {
         int x, y;

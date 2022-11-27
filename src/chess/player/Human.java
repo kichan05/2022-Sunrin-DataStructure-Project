@@ -49,11 +49,17 @@ public class Human extends Player {
 
             if (!inputPos.inBoard()) {
                 ChessUi.printErrorMessage("범위를 벗어난 입력입니다.");
-            } else if (!selectPiece.canMove(inputPos)) {
+            }
+            else if (!selectPiece.canMove(inputPos)) {
                 ChessUi.printErrorMessage("해당 위치로 이동할 수 없습니다.");
-            } else if (targetPiece instanceof King) {
+            }
+            else if (targetPiece instanceof King) {
                 ChessUi.printErrorMessage("King은 잡을 수 없습니다.");
-            } else {
+            }
+            else if(selectPiece instanceof King && !checkKingMove(inputPos)){
+                ChessUi.printErrorMessage("King이 이동하려는 위치에 상대 기물이 이동할 수 있습니다");
+            }
+            else {
                 return inputPos;
             }
 

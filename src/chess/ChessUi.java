@@ -92,6 +92,7 @@ public class ChessUi {
             }
             System.out.println("\n  ───────────────────────────────────────");
         }
+//        System.out.println("     0ㅤㅤ1ㅤㅤ2ㅤㅤ3ㅤㅤ4ㅤㅤ5ㅤㅤ6ㅤㅤ7");
     }
 
     private static void printPieceCount() {

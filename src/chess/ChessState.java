@@ -88,6 +88,12 @@ public class ChessState {
     public static void checkMateTest(Team team) {
         King king = Board.board.getKing(team);
 
+        if(!king.canMove()){ //킹이 기본적으로 움직일 수 있는 곳이 없는경우, -> 체크메이트 아님
+            if (team == Team.BLUE) isBlueCheckMate = false;
+            else isRedCheckMate = false;
+            return;
+        }
+
         for (Pos pos : king.getCanMovePosList()) {
             if(king.checkEnemyMove(pos)) { // 적의 공격을 안받는 움직 일 수 있는 위치가 있다. -> 체크메이트 아님
                 if (team == Team.BLUE) isBlueCheckMate = false;

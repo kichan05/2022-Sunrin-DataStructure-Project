@@ -5,6 +5,7 @@ import chess.pieces.Piece;
 import chess.player.AlphaChess;
 import chess.player.Human;
 import chess.player.Player;
+import chess.util.Pos;
 import chess.util.Team;
 
 import java.util.ArrayList;
@@ -87,14 +88,17 @@ public class ChessState {
     public static void checkMateTest(Team team) {
         King king = Board.board.getKing(team);
 
-        if(king.canMove()) { //킹이 움직일 수 있는 곳이 있다, -> 체크테이트 아님
-            if(team == Team.BLUE) isBlueCheckMate = false;
-            else isRedCheckMate = false;
+        for (Pos pos : king.getCanMovePosList()) {
+            if(king.checkEnemyMove(pos)) { // 적의 공격을 안받는 움직 일 수 있는 위치가 있다. -> 체크메이트 아님
+                if (team == Team.BLUE) isBlueCheckMate = false;
+                else isRedCheckMate = false;
+                return;
+            }
         }
-        else { // 체크메이트
-            if(team == Team.BLUE) isBlueCheckMate = true;
-            else isRedCheckMate = true;
-        }
+
+        // 체크메이트다.
+        if (team == Team.BLUE) isBlueCheckMate = true;
+        else isRedCheckMate = true;
     }
     /**
      * 문제점 : 킹이 공격받지 않고 보호를 받아도 움직일 수 있는 곳은 없다.

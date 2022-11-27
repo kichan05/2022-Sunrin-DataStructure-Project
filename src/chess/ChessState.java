@@ -39,20 +39,18 @@ public class ChessState {
     }
     public static void initPlayers(int gameMode) {
         switch (gameMode) {
-            case 1:
+            case 1 -> {
                 players[0] = new Human(Team.BLUE);
                 players[1] = new Human(Team.YELLOW);
-                break;
-            case 2:
+            }
+            case 2 -> {
                 players[0] = new Human(Team.BLUE);
                 players[1] = new AlphaChess(Team.YELLOW);
-                break;
-            case 3:
+            }
+            case 3 -> {
                 players[0] = new AlphaChess(Team.BLUE);
                 players[1] = new AlphaChess(Team.YELLOW);
-                break;
-            default:
-                throw new RuntimeException("Game Mode Error");
+            }
         }
     }
 
@@ -79,8 +77,8 @@ public class ChessState {
         else isYellowCheck = false;
     }
 
-    private static boolean isRedCheckMate = false;
-    private static boolean isBlueCheckMate = false;
+    private static boolean isRedCheckMate = true;
+    private static boolean isBlueCheckMate = true;
     public static boolean isCheckMate(Team team) {
         if (team == Team.BLUE) return isBlueCheckMate;
         else return isRedCheckMate;

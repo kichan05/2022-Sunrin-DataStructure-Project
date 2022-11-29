@@ -61,7 +61,7 @@ public class Board {
         pieces.add(new Knight(6, 7, Team.BLUE));
         pieces.add(new Rook(7, 7, Team.BLUE));
         for (int i = 0; i < 8; i++) pieces.add(new Pawn(i, 6, Team.BLUE));
-//        testBoard();
+        testBoard();
     }
 
     public void testBoard() {
@@ -70,10 +70,7 @@ public class Board {
         pieces.add(new King(3, 4, Team.BLUE));
         pieces.add(new King(0, 0, Team.YELLOW));
 
-        pieces.add(new Knight(1, 3, Team.YELLOW));
-        pieces.add(new Rook(6, 5, Team.YELLOW));
-        pieces.add(new Rook(1, 5, Team.YELLOW));
-        for (int i = 0; i < 8; i++) pieces.add(new Pawn(i, 6, Team.BLUE));
+        for (int i = 0; i < 8; i++) pieces.add(new Pawn(i, 1, Team.BLUE));
     }
 
     /**

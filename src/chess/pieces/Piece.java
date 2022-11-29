@@ -84,6 +84,10 @@ public abstract class Piece {
         return isDeath;
     }
 
+    public int getLevel(){
+        return level;
+    }
+
     /**
      * 화면에 출력하는 용도의 문자열 변환
      */

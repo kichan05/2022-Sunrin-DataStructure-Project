@@ -121,14 +121,43 @@ public class AlphaChess extends Player {
             }
         }
 
+        Pos maxLevelPos = selectMoveMaxLevel(selectPiece);
+        if (maxLevelPos != null) return maxLevelPos;
+
         while (true) { // 랜덤으로 좌표 선택
             Pos randomPos = Pos.getRandomPos();
 
-            // 해당 좌표로 이동이 가능하면 반환
-            if (selectPiece.canMove(randomPos)
-                    && !(Board.board.getPieceByPos(randomPos) instanceof chess.pieces.King)) {
-                return randomPos;
+            if(!selectPiece.canMove(randomPos))
+                continue;
+
+            if(Board.board.getPieceByPos(randomPos) instanceof chess.pieces.King)
+                continue;
+
+            return randomPos;
+        }
+    }
+
+    @Nullable
+    private static Pos selectMoveMaxLevel(Piece selectPiece) {
+        ArrayList<Pos> pieceCanMovePosList = selectPiece.getCanMovePosList();
+        int maxLevel = 0;
+        Pos maxLevelPos = null;
+
+        for (Pos pos : pieceCanMovePosList){
+            Piece targetPiece = Board.board.getPieceByPos(pos);
+
+            if(targetPiece == null && !(targetPiece instanceof King))
+                continue;
+
+            if(targetPiece.getLevel() > maxLevel){
+                maxLevel = targetPiece.getLevel();
+                maxLevelPos = pos;
             }
         }
+
+        if (maxLevelPos != null) {
+            return maxLevelPos;
+        }
+        return null;
     }
 }

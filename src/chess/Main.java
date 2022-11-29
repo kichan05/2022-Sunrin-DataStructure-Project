@@ -17,8 +17,14 @@ public class Main {
 
         ChessUi.showBoard();
 
+        ChessUi.clearBuffer();
+
         while (ChessState.getGameState()) {
             Player currentPlayer = ChessState.getCurrentPlayer();
+
+            if (ChessState.getTurn() == 0 && currentPlayer instanceof AlphaChess) {
+                ChessUi.nextEnter();
+            }
 
             Piece selectedPiece = currentPlayer.selectPiece();
 

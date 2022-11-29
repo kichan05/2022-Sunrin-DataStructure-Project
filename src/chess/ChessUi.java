@@ -5,13 +5,14 @@ import chess.util.Color;
 import chess.util.Pos;
 import chess.util.Team;
 
-import java.io.IOException;
 import java.util.Scanner;
-import java.util.stream.StreamSupport;
 
 public class ChessUi {
     private static final Scanner scanner = new Scanner(System.in);
 
+    public static void clearBuffer() {
+        scanner.nextLine();
+    }
 
     public static void printErrorMessage(String message) {
         System.out.printf("%s▶ %s%s\n", Color.RED.getFontColor(), message, Color.RESET.getFontColor());

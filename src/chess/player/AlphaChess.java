@@ -6,6 +6,7 @@ import chess.pieces.King;
 import chess.pieces.Piece;
 import chess.util.Pos;
 import chess.util.Team;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -42,18 +43,7 @@ public class AlphaChess extends Player {
          * 없으면 랜덤으로 이동하게 설정
          * */
 
-        while (true) { // 랜덤으로 좌표 선택
-            Pos randomPos = Pos.getRandomPos();
-            Piece randomSelectPiece = Board.board.getPieceByPos(randomPos);
-
-            // 해당 좌표의 기물이 선택히 가능하면 반환
-            if (randomSelectPiece != null
-                && randomSelectPiece.getTeam() == getTeam()
-                && randomSelectPiece.canMove()
-            ) {
-                return randomSelectPiece;
-            }
-        }
+        return selectPieceRandomLogic();
     }
 
     @Nullable
@@ -79,7 +69,6 @@ public class AlphaChess extends Player {
 
     private King checkLogicMoveKing() {
         //킹을 이동 시키는 로직
-
         King king = Board.board.getKing(getTeam());
         for(Pos pos : king.getCanMovePosList()){
             if(king.checkEnemyMove(pos)) {
@@ -87,8 +76,22 @@ public class AlphaChess extends Player {
             }
         }
 
-
         return null;
+    }
+
+    private Piece selectPieceRandomLogic() {
+        while (true) { // 랜덤으로 좌표 선택
+            Pos randomPos = Pos.getRandomPos();
+            Piece randomSelectPiece = Board.board.getPieceByPos(randomPos);
+
+            // 해당 좌표의 기물이 선택히 가능하면 반환
+            if (randomSelectPiece != null
+                    && randomSelectPiece.getTeam() == getTeam()
+                    && randomSelectPiece.canMove()
+            ) {
+                return randomSelectPiece;
+            }
+        }
     }
 
 

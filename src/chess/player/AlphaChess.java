@@ -29,8 +29,6 @@ public class AlphaChess extends Player {
                 checkPiece = ChessState.getCheckPiece(Team.YELLOW);
             }
 
-            System.out.println(checkPiece);
-
             for(Piece piece : piecesList) {
                 if(piece.canMove(checkPiece.getPos())) {
                     return piece;
@@ -46,8 +44,7 @@ public class AlphaChess extends Player {
          * 없으면 랜덤으로 이동하게 설정
          * */
 
-        while (true) {
-            // 랜덤으로 좌표 선택
+        while (true) { // 랜덤으로 좌표 선택
             Pos randomPos = Pos.getRandomPos();
             Piece randomSelectPiece = Board.board.getPieceByPos(randomPos);
 
@@ -63,13 +60,20 @@ public class AlphaChess extends Player {
 
     @Override
     public Pos selectMovePos(Piece selectPiece) {
-//        try {
-//            Thread.sleep(500);
-//        } catch (InterruptedException e) {
-//            throw new RuntimeException(e);
-//        }
-        while (true) {
-            // 랜덤으로 좌표 선택
+        if(ChessState.isCheck(getTeam())){ //자신의 팀이 체크 상황이라면
+            Piece checkPiece;
+
+            if(getTeam() == Team.BLUE){
+                checkPiece = ChessState.getCheckPiece(Team.BLUE);
+            }
+            else{
+                checkPiece = ChessState.getCheckPiece(Team.YELLOW);
+            }
+
+            return checkPiece.getPos();
+        }
+
+        while (true) { // 랜덤으로 좌표 선택
             Pos randomPos = Pos.getRandomPos();
 
             // 해당 좌표로 이동이 가능하면 반환

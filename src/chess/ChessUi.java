@@ -5,6 +5,7 @@ import chess.util.Color;
 import chess.util.Pos;
 import chess.util.Team;
 
+import java.io.IOException;
 import java.util.Scanner;
 import java.util.stream.StreamSupport;
 

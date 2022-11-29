@@ -57,9 +57,19 @@ public class ChessState {
 
     private static boolean isYellowCheck = false;
     private static boolean isBlueCheck = false;
+    private static Piece yellowCheckPiece = null;
+    private static Piece blueCheckPiece = null;
     public static boolean isCheck(Team team) {
         if (team == Team.BLUE) return isBlueCheck;
         else return isYellowCheck;
+    }
+    public static Piece getCheckPiece(Team team){
+        if(team == Team.YELLOW) {
+            return yellowCheckPiece;
+        }
+        else {
+            return blueCheckPiece;
+        }
     }
     public static void checkTest(Team team) {
         King king = Board.board.getKing(team);
@@ -67,8 +77,13 @@ public class ChessState {
 
         for (Piece enemy : enemyPieceList) {
             if (enemy.canMove(king.getPos())) {
+                // 팀에 따라서 체크 상태를 저장
                 if (team == Team.BLUE) isBlueCheck = true;
                 else isYellowCheck = true;
+
+                // 팀의 체크 시키는 적 기물을 저장
+                if (team == Team.BLUE) blueCheckPiece = enemy;
+                else yellowCheckPiece = enemy;
 
                 return;
             }

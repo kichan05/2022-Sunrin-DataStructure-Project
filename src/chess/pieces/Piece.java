@@ -1,6 +1,7 @@
 package chess.pieces;
 
 import chess.util.Color;
+import chess.util.PieceType;
 import chess.util.Pos;
 import chess.util.Team;
 
@@ -17,13 +18,15 @@ public abstract class Piece {
     private boolean isCheck = false;
     private int level;
     //기물의 레벨 : 폰 = 1, 나이트, 비숍, 룩 = 2, 퀸 = 3, 킹 = 4
+    private PieceType pieceType;
 
-    Piece(int x, int y, Team team, char shapeWhite, int level) {
+    Piece(int x, int y, Team team, char shapeWhite, int level, PieceType pieceType) {
         this.pos = new Pos(x, y);
         this.team = team;
 
         this.shape = shapeWhite;
         this.level = level;
+        this.pieceType = pieceType;
     }
 
     public Pos getPos() {
@@ -86,6 +89,10 @@ public abstract class Piece {
 
     public int getLevel(){
         return level;
+    }
+
+    public PieceType getPieceType() {
+        return pieceType;
     }
 
     /**

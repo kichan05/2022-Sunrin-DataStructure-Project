@@ -1,6 +1,7 @@
 package chess.pieces;
 
 import chess.Board;
+import chess.util.PieceType;
 import chess.util.Pos;
 import chess.util.Team;
 
@@ -8,7 +9,7 @@ import java.util.ArrayList;
 
 public class Queen extends Piece {
     public Queen(int x, int y, Team team) {
-        super(x, y, team, '♛', 3);
+        super(x, y, team, '♛', 3, PieceType.QUEEN);
     }
 
     @Override

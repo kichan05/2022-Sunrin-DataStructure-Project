@@ -1,6 +1,7 @@
 package chess.pieces;
 
 import chess.Board;
+import chess.util.PieceType;
 import chess.util.Pos;
 import chess.util.Team;
 
@@ -8,7 +9,7 @@ import java.util.ArrayList;
 
 public class Bishop extends Piece {
     public Bishop(int x, int y, Team team) {
-        super(x, y, team, '♝', 2);
+        super(x, y, team, '♝', 2, PieceType.BISHOP);
     }
 
     @Override

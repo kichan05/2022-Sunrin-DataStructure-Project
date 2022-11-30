@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class Pawn extends Piece {
     public Pawn(int x, int y, Team team) {
-        super(x, y, team, '♙', 1);
+        super(x, y, team, '♙', 1, PieceType.PAWN);
     }
 
     @Override
@@ -40,14 +40,12 @@ public class Pawn extends Piece {
         posPiece = Board.board.getPieceByPos(tempPos);
         if(tempPos.inBoard() && posPiece != null && posPiece.getTeam() != getTeam()){
             posList.add(tempPos);
-            System.out.println("대각선 + 1");
         }
 
         tempPos = new Pos(getPosX()-1, getPosY() + ((getTeam() == Team.BLUE) ? -1 : 1));
         posPiece = Board.board.getPieceByPos(tempPos);
         if(tempPos.inBoard() && posPiece != null && posPiece.getTeam() != getTeam()){
             posList.add(tempPos);
-            System.out.println("대각선 - 1");
         }
 
         return posList;

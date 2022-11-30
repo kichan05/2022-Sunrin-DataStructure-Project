@@ -42,40 +42,29 @@ public class Board {
 
 
     public void initGameBoard() {
-        pieces.add(new Rook(0, 0, Team.YELLOW));
-        pieces.add(new Knight(1, 0, Team.YELLOW));
-        pieces.add(new Bishop(2, 0, Team.YELLOW));
-        pieces.add(new Queen(3, 0, Team.YELLOW));
-        pieces.add(new King(4, 0, Team.YELLOW));
-        pieces.add(new Bishop(5, 0, Team.YELLOW));
-        pieces.add(new Knight(6, 0, Team.YELLOW));
-        pieces.add(new Rook(7, 0, Team.YELLOW));
-        for (int i = 0; i < 8; i++) pieces.add(new Pawn(i, 1, Team.YELLOW));
+        Board.board.createPiece(new Pos(0, 0), PieceType.ROOK, Team.YELLOW);
+        Board.board.createPiece(new Pos(1, 0), PieceType.KNIGHT, Team.YELLOW);
+        Board.board.createPiece(new Pos(2, 0), PieceType.BISHOP, Team.YELLOW);
+        Board.board.createPiece(new Pos(3, 0), PieceType.QUEEN, Team.YELLOW);
+        Board.board.createPiece(new Pos(4, 0), PieceType.KING, Team.YELLOW);
+        Board.board.createPiece(new Pos(5, 0), PieceType.BISHOP, Team.YELLOW);
+        Board.board.createPiece(new Pos(6, 0), PieceType.KNIGHT, Team.YELLOW);
+        Board.board.createPiece(new Pos(7, 0), PieceType.ROOK, Team.YELLOW);
+        for (int i = 0; i < 8; i++) Board.board.createPiece(new Pos(i, 1), PieceType.PAWN, Team.YELLOW);
 
-        pieces.add(new Rook(0, 7, Team.BLUE));
-        pieces.add(new Knight(1, 7, Team.BLUE));
-        pieces.add(new Bishop(2, 7, Team.BLUE));
-        pieces.add(new Queen(3, 7, Team.BLUE));
-        pieces.add(new King(4, 7, Team.BLUE));
-        pieces.add(new Bishop(5, 7, Team.BLUE));
-        pieces.add(new Knight(6, 7, Team.BLUE));
-        pieces.add(new Rook(7, 7, Team.BLUE));
-        for (int i = 0; i < 8; i++) pieces.add(new Pawn(i, 6, Team.BLUE));
-//        testBoard();
-    }
+        Board.board.createPiece(new Pos(0, 7), PieceType.ROOK, Team.BLUE);
+        Board.board.createPiece(new Pos(1, 7), PieceType.KNIGHT, Team.BLUE);
+        Board.board.createPiece(new Pos(2, 7), PieceType.BISHOP, Team.BLUE);
+        Board.board.createPiece(new Pos(3, 7), PieceType.QUEEN, Team.BLUE);
+        Board.board.createPiece(new Pos(4, 7), PieceType.KING, Team.BLUE);
+        Board.board.createPiece(new Pos(5, 7), PieceType.BISHOP, Team.BLUE);
+        Board.board.createPiece(new Pos(6, 7), PieceType.KNIGHT, Team.BLUE);
+        Board.board.createPiece(new Pos(7, 7), PieceType.ROOK, Team.BLUE);
+        for (int i = 0; i < 8; i++) Board.board.createPiece(new Pos(i, 6), PieceType.PAWN, Team.BLUE);
 
-    public void testBoard() {
-        clearBoard();
-
-
-        pieces.add(new Rook(0, 0, Team.YELLOW));
-        pieces.add(new King(4, 0, Team.YELLOW));
-        pieces.add(new Rook(5, 4, Team.YELLOW));
-
-        pieces.add(new Rook(0, 7, Team.BLUE));
-        pieces.add(new King(4, 7, Team.BLUE));
-        pieces.add(new Rook(7, 7, Team.BLUE));
-
+//        GameTest.testEnPassant();
+//        GameTest.testCastling();
+//        GameTest.testPromotion();
     }
 
     /**

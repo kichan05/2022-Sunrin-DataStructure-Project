@@ -92,32 +92,32 @@ public class ChessState {
         else isYellowCheck = false;
     }
 
-    private static boolean isRedCheckMate = true;
+    private static boolean isYellowCheckMate = true;
     private static boolean isBlueCheckMate = true;
     public static boolean isCheckMate(Team team) {
         if (team == Team.BLUE) return isBlueCheckMate;
-        else return isRedCheckMate;
+        else return isYellowCheckMate;
     }
     public static void checkMateTest(Team team) {
         King king = Board.board.getKing(team);
 
         if(!king.canMove()){ //킹이 기본적으로 움직일 수 있는 곳이 없는경우, -> 체크메이트 아님
             if (team == Team.BLUE) isBlueCheckMate = false;
-            else isRedCheckMate = false;
+            else isYellowCheckMate = false;
             return;
         }
 
         for (Pos pos : king.getCanMovePosList()) {
             if(king.checkEnemyMove(pos)) { // 적의 공격을 안 받는 움직일 수 있는 위치가 있다. -> 체크메이트 아님
                 if (team == Team.BLUE) isBlueCheckMate = false;
-                else isRedCheckMate = false;
+                else isYellowCheckMate = false;
                 return;
             }
         }
 
         // 체크메이트다.
         if (team == Team.BLUE) isBlueCheckMate = true;
-        else isRedCheckMate = true;
+        else isYellowCheckMate = true;
     }
     /**
      * 문제점 : 킹이 공격받지 않고 보호를 받아도 움직일 수 있는 곳은 없다.

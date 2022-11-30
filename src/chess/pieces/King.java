@@ -67,12 +67,13 @@ public class King extends Piece {
 
         // 캐슬링
         if(pos.getY() == ((getTeam()!=Team.BLUE) ? 0 : 7)){
-            if(pos.getX() == 1){
-                Piece targetPiece = Board.board.getPieceByPos(new Pos(0, (getTeam() != Team.BLUE) ? 0 : 7));
+            Piece targetPiece = Board.board.getPieceByPos(new Pos(0, (getTeam() != Team.BLUE) ? 0 : 7));
+            if(pos.getX() == 1 && targetPiece != null){
                 targetPiece.setPos(new Pos(2,(getTeam()!=Team.BLUE) ? 0 : 7));
             }
-            if(pos.getX() == 6){
-                Piece targetPiece = Board.board.getPieceByPos(new Pos(7, (getTeam() != Team.BLUE) ? 0 : 7));
+
+            targetPiece = Board.board.getPieceByPos(new Pos(7, (getTeam() != Team.BLUE) ? 0 : 7));
+            if(pos.getX() == 6 && targetPiece != null){
                 targetPiece.setPos(new Pos(5,(getTeam()!=Team.BLUE) ? 0 : 7));
             }
         }

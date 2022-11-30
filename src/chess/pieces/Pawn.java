@@ -53,7 +53,7 @@ public class Pawn extends Piece {
             posList.add(tempPos);
         }
 
-        // 앙파상
+        // 앙파상 (조건 : 상대 폰이 2칸 전진 직후일 때)
         if(getPosY() == ((getTeam()!=Team.BLUE) ? 4 : 3)){
             int previousTurn = ChessState.getTurn() - 1;
 
@@ -61,7 +61,7 @@ public class Pawn extends Piece {
             posPiece = Board.board.getPieceByPos(tempPos);
 
             if(posPiece!=null){
-                if(posPiece.getPieceType() == PieceType.PAWN && posPiece.getMoveTurn() == previousTurn){
+                if(posPiece.getPieceType() == PieceType.PAWN && posPiece.getMoveTurn() == previousTurn && posPiece.getMoveCount() == 1){
                     posList.add(new Pos(getPosX() + 1, ((getTeam()!=Team.BLUE) ? 5 : 2)));
                     posPiece.check();
                     isEnPassant = true;
@@ -72,7 +72,7 @@ public class Pawn extends Piece {
             posPiece = Board.board.getPieceByPos(tempPos);
 
             if(posPiece!=null){
-                if(posPiece.getPieceType() == PieceType.PAWN && posPiece.getMoveTurn() == previousTurn){
+                if(posPiece.getPieceType() == PieceType.PAWN && posPiece.getMoveTurn() == previousTurn  && posPiece.getMoveCount() == 1){
                     posList.add(new Pos(getPosX() - 1, ((getTeam()!=Team.BLUE) ? 5 : 2)));
                     posPiece.check();
                     isEnPassant = true;

@@ -1,5 +1,6 @@
 package chess.pieces;
 
+import chess.ChessState;
 import chess.util.Color;
 import chess.util.PieceType;
 import chess.util.Pos;
@@ -19,6 +20,7 @@ public abstract class Piece {
     private int level;
     //기물의 레벨 : 폰 = 1, 나이트, 비숍, 룩 = 2, 퀸 = 3, 킹 = 4
     private PieceType pieceType;
+    private int moveTurn = -1;
 
     Piece(int x, int y, Team team, char shapeWhite, int level, PieceType pieceType) {
         this.pos = new Pos(x, y);
@@ -44,6 +46,7 @@ public abstract class Piece {
     public void setPos(Pos pos) {
         this.pos = pos;
         this.moveCount++;
+        this.moveTurn = ChessState.getTurn();
     }
 
     public Team getTeam() {
@@ -93,6 +96,10 @@ public abstract class Piece {
 
     public PieceType getPieceType() {
         return pieceType;
+    }
+
+    public int getMoveTurn(){
+        return moveTurn;
     }
 
     /**

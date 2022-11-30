@@ -61,22 +61,31 @@ public class Board {
         pieces.add(new Knight(6, 7, Team.BLUE));
         pieces.add(new Rook(7, 7, Team.BLUE));
         for (int i = 0; i < 8; i++) pieces.add(new Pawn(i, 6, Team.BLUE));
-        testBoard();
+//        testBoard();
     }
 
     public void testBoard() {
         clearBoard();
 
-        pieces.add(new King(4, 0, Team.YELLOW));
         pieces.add(new Rook(0, 0, Team.YELLOW));
+        pieces.add(new Knight(1, 0, Team.YELLOW));
+        pieces.add(new Bishop(2, 0, Team.YELLOW));
+        pieces.add(new Queen(3, 0, Team.YELLOW));
+        pieces.add(new King(4, 0, Team.YELLOW));
+        pieces.add(new Bishop(5, 0, Team.YELLOW));
+        pieces.add(new Knight(6, 0, Team.YELLOW));
         pieces.add(new Rook(7, 0, Team.YELLOW));
+        for (int i = 0; i < 8; i++) pieces.add(new Pawn(i, 1, Team.YELLOW));
 
-        pieces.add(new Rook(5, 5, Team.YELLOW));
-        pieces.add(new Rook(6, 5, Team.YELLOW));
-
-        pieces.add(new King(4, 7, Team.BLUE));
         pieces.add(new Rook(0, 7, Team.BLUE));
+        pieces.add(new Knight(1, 7, Team.BLUE));
+        pieces.add(new Bishop(2, 7, Team.BLUE));
+        pieces.add(new Queen(3, 7, Team.BLUE));
+        pieces.add(new King(4, 7, Team.BLUE));
+        pieces.add(new Bishop(5, 7, Team.BLUE));
+        pieces.add(new Knight(6, 7, Team.BLUE));
         pieces.add(new Rook(7, 7, Team.BLUE));
+        createPiece(new Pos(5, 4), PieceType.PAWN, Team.BLUE);
 
     }
 

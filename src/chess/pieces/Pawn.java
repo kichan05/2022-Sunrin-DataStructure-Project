@@ -1,6 +1,7 @@
 package chess.pieces;
 
 import chess.Board;
+import chess.ChessState;
 import chess.ChessUi;
 import chess.util.PieceType;
 import chess.util.Pos;
@@ -10,8 +11,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Pawn extends Piece {
+
+    private boolean isEnPassant;
+
     public Pawn(int x, int y, Team team) {
         super(x, y, team, '♙', 1, PieceType.PAWN);
+        isEnPassant = false;
     }
 
     @Override
@@ -48,6 +53,35 @@ public class Pawn extends Piece {
             posList.add(tempPos);
         }
 
+        // 앙파상
+        if(getPosY() == ((getTeam()!=Team.BLUE) ? 4 : 3)){
+            int previousTurn = ChessState.getTurn() - 1;
+
+            tempPos = new Pos(getPosX() + 1, getPosY());
+            posPiece = Board.board.getPieceByPos(tempPos);
+
+            if(posPiece!=null){
+                if(posPiece.getPieceType() == PieceType.PAWN && posPiece.getMoveTurn() == previousTurn){
+                    posList.add(new Pos(getPosX() + 1, ((getTeam()!=Team.BLUE) ? 5 : 2)));
+                    posPiece.check();
+                    isEnPassant = true;
+                }
+            }
+
+            tempPos = new Pos(getPosX() - 1, getPosY());
+            posPiece = Board.board.getPieceByPos(tempPos);
+
+            if(posPiece!=null){
+                if(posPiece.getPieceType() == PieceType.PAWN && posPiece.getMoveTurn() == previousTurn){
+                    posList.add(new Pos(getPosX() - 1, ((getTeam()!=Team.BLUE) ? 5 : 2)));
+                    posPiece.check();
+                    isEnPassant = true;
+                }
+            }
+
+
+        }
+
         return posList;
     }
 
@@ -55,12 +89,21 @@ public class Pawn extends Piece {
     public void setPos(Pos pos){
         super.setPos(pos);
 
+        // 프로모션
         if(getTeam() == Team.BLUE && getPosY() == 0) {
             promotion();
         }
         if(getTeam() == Team.YELLOW && getPosY() == 7) {
             promotion();
         }
+
+        // 앙파상
+        Piece targetPiece = Board.board.getPieceByPos(new Pos(getPosX(), getPosY() + ((getTeam() == Team.BLUE) ? 1 : -1)));
+       if(isEnPassant && targetPiece != null){
+           targetPiece.death();
+           isEnPassant = false;
+       }
+
     }
 
     private void promotion(){
@@ -81,4 +124,5 @@ public class Pawn extends Piece {
         }
 
     }
+
 }

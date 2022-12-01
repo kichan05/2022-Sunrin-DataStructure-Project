@@ -113,6 +113,18 @@ public class ChessState {
                 else isYellowCheckMate = false;
                 return;
             }
+
+            if(king.checkEnemyMoveProtect(pos)) { // 적 기물을 잡을 수 있는 기물이 있다. -> 체크메이트 아님
+                if (team == Team.BLUE) isBlueCheckMate = false;
+                else isYellowCheckMate = false;
+                return;
+            }
+
+            if(king.checkAllyMove(pos)) { // 적 공격을 막을 수 있는 기물이 있다 -> 체크메이트 아님
+                if (team == Team.BLUE) isBlueCheckMate = false;
+                else isYellowCheckMate = false;
+                return;
+            }
         }
 
         // 체크메이트다.

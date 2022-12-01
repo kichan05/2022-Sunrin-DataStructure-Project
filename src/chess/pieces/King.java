@@ -1,11 +1,13 @@
 package chess.pieces;
 
 import chess.Board;
+import chess.ChessUi;
 import chess.util.PieceType;
 import chess.util.Pos;
 import chess.util.Team;
 
 import java.util.ArrayList;
+import java.util.stream.StreamSupport;
 
 public class King extends Piece {
     public King(int x, int y, Team team) {

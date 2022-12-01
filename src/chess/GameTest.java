@@ -57,4 +57,11 @@ public class GameTest {
         Board.board.createPiece(new Pos(7, 7), PieceType.ROOK, Team.BLUE);
 
     }
+
+    public static void testKing() {
+        Board.board.clearBoard();
+
+        initKing();
+        Board.board.createPiece(new Pos(4, 3), PieceType.ROOK, Team.BLUE);
+    }
 }

@@ -146,7 +146,7 @@ public class AlphaChess extends Player {
         for (Pos pos : pieceCanMovePosList){
             Piece targetPiece = Board.board.getPieceByPos(pos);
 
-            if(targetPiece == null && !(targetPiece instanceof King))
+            if(targetPiece == null || targetPiece instanceof King)
                 continue;
 
             if(targetPiece.getLevel() > maxLevel){
@@ -155,9 +155,6 @@ public class AlphaChess extends Player {
             }
         }
 
-        if (maxLevelPos != null) {
-            return maxLevelPos;
-        }
-        return null;
+        return maxLevelPos;
     }
 }

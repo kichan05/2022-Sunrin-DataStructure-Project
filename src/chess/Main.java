@@ -12,8 +12,8 @@ public class Main {
         showMenu();
 
         Board.board.initGameBoard();
-        ChessState.checkTest(Team.BLUE);
-        ChessState.checkTest(Team.YELLOW);
+//        ChessState.checkTest(Team.BLUE);
+//        ChessState.checkTest(Team.YELLOW);
 
         ChessUi.showBoard();
 

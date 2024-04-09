@@ -62,7 +62,7 @@ public class Board {
         Board.board.createPiece(new Pos(7, 7), PieceType.ROOK, Team.BLUE);
         for (int i = 0; i < 8; i++) Board.board.createPiece(new Pos(i, 6), PieceType.PAWN, Team.BLUE);
 
-        GameTest.testKing();
+//        GameTest.testKing();
 //        GameTest.testEnPassant();
 //        GameTest.testCastling();
 //        GameTest.testPromotion();

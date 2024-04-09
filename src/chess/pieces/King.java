@@ -94,7 +94,7 @@ public class King extends Piece {
                         && !(i.getPosY() + ((getTeam() != Team.BLUE) ? -2 : 2) == getPosY())
                         && !(i.getMoveCount() == 0 && i.getPosY() + ((getTeam() != Team.BLUE) ? -3 : 3) == getPosY())){ // 폰 전진 예외
 
-                    System.out.println("checkEnemyMove : " + i.getTeam() + " | " + i.getPieceType() + " | " + i.getCanMovePosList());
+//                    System.out.println("checkEnemyMove : " + i.getTeam() + " | " + i.getPieceType() + " | " + i.getCanMovePosList());
                     return false;
                 }
 
@@ -114,7 +114,7 @@ public class King extends Piece {
                 for(Piece j : allyPieceList){
 
                     if (j.getCanMovePosList().contains(i.getPos())){
-                        System.out.println("checkEnemyMoveProtect : " + j.getTeam() + " | " + j.getPieceType() + " | " + j.getCanMovePosList());
+//                        System.out.println("checkEnemyMoveProtect : " + j.getTeam() + " | " + j.getPieceType() + " | " + j.getCanMovePosList());
                         return true;
 
                     }
@@ -131,7 +131,7 @@ public class King extends Piece {
 
         for (Piece i : allyPieceList) {
             if (i.getPieceType()!=PieceType.KING && i.getCanMovePosList().contains(targetPos)) {
-                System.out.println("checkAllyMove : " + i.getTeam() + " | " + i.getPieceType() + " | " + i.getCanMovePosList());
+//                System.out.println("checkAllyMove : " + i.getTeam() + " | " + i.getPieceType() + " | " + i.getCanMovePosList());
                 return true;
             }
         }
